@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lodgify Co-Host — Marc Verdera</title>
+<meta name="description" content="Designing the AI agent that became Lodgify’s shipped Co-Host feature.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lodgify Co-Host — Marc Verdera">
+<meta property="og:description" content="Designing the AI agent that became Lodgify’s shipped Co-Host feature.">
+<meta property="og:url" content="https://marcverdera.vercel.app/case-studies/lodgify-cohost">
+<meta property="og:image" content="https://marcverdera.vercel.app/images/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="back" href="../index.html#work">&larr; Selected work</a>
+    <span class="tag">Case Study</span>
+  </div>
+</nav>
+
+<header class="cs-hero">
+  <div class="wrap">
+    <hr class="rule">
+    <h1>Lodgify Co-Host</h1>
+    <p class="lead">Designing the AI agent that became Lodgify's shipped Co-Host feature.</p>
+    <div class="cs-tags-row">
+      <span>AI-Native Product &middot; Shipped &middot; Principal Designer (Interim)</span>
+      <span class="year">2025&ndash;2026</span>
+    </div>
+    <figure class="cs-photo">
+      <img src="../images/cohost-hero.jpg" alt="Lodgify dashboard with the Co-host docked bottom-right: a 'Meet your co-host' panel listing suggested prompts such as 'More direct bookings?' and 'Any calendar gaps?', with a Try it button">
+      <figcaption class="cap-line">Entry state. The Co-host docks at the edge of the dashboard and introduces what it can do.</figcaption>
+    </figure>
+  </div>
+</header>
+
+<section style="padding-top:0; border-top:none;">
+  <div class="wrap">
+    <hr class="rule" style="margin-bottom:0;">
+
+    <div class="lv-row">
+      <div class="lv-k">The Move</div>
+      <div class="lv-v">
+        <p>After three years building Lodgify's design function from 2 to 10 people, the foundations were stable. The gap was no longer the team. It was the product bet that would define the next three years: our answer to the AI shift.</p>
+        <p>I made the case to the CPDO that this bet needed one designer holding the whole solution space, with exec-level context. I stepped back from Head of Design into a Principal Designer (Interim) role for two quarters and led it hands-on.</p>
+        <blockquote>&ldquo;The role of design in an AI-era product isn&rsquo;t to decorate the model. It&rsquo;s to make the product trustworthy, transparent, and useful enough that a human decides to act.&rdquo;</blockquote>
+        <p class="cap" style="margin-top:-8px;">From my kick-off memo to product leadership, Sprint 0.</p>
+      </div>
+    </div>
+
+    <div class="lv-row">
+      <div class="lv-k">Context</div>
+      <div class="lv-v">
+        <p>Lodgify is a B2B platform for vacation-rental hosts: bookings, channels, pricing, operations and guest messages. In 2025 hosts stopped asking for more features and started asking for the business to run itself.</p>
+        <p>Every property manager already juggled five or more systems, and every competitor was shipping AI. Another dashboard wasn&rsquo;t going to win. Taking whole jobs off the host&rsquo;s plate would.</p>
+      </div>
+    </div>
+
+    <div class="lv-row">
+      <div class="lv-k">The Problem</div>
+      <div class="lv-v">
+        <p><b>Hosts don&rsquo;t need more tools. They need to know what to do next.</b> We reframed the brief from &ldquo;make workflows faster&rdquo; to &ldquo;shorten the distance between a signal and a decision.&rdquo;</p>
+        <p>The design target: one interface where the host engages once to switch on a system that keeps optimising toward the outcomes they want.</p>
+        <h3>Three constraints we designed against</h3>
+        <div class="values">
+          <div class="value">Trust<span>The Co-host always shows its work. Every output traces back to the host&rsquo;s own data.</span></div>
+          <div class="value">Transparency<span>Every recommendation says why this, why now, what it assumes and what happens if you accept.</span></div>
+          <div class="value">Context for decisions<span>The host sees the numbers and comparisons behind a suggestion, and what it would change.</span></div>
+        </div>
+        <p style="margin-top:18px;">Trust was the real problem. Without it, the Co-host is just another chat window, and trust is a design problem, not a model problem.</p>
+      </div>
+    </div>
+
+    <div class="lv-row">
+      <div class="lv-k">Approach</div>
+      <div class="lv-v">
+        <p>A small team and a tight evidence loop: two product designers, a researcher and a PM, with the CPDO as approver. We ran five-week sprints. Inside each week, three days of ideation, test prep, customer testing and learnings, then a Friday reflect-and-share with leadership.</p>
+        <p>I owned direction, the hardest interactions and the stakeholder story. The team owned parallel exploration, testing operations, documentation and design-system detail work.</p>
+        <p><b>Three rounds of testing with 24 customers.</b> Five directions explored, two killed, one landed. The test wasn&rsquo;t whether we liked the design. It was whether hosts could use it and leadership would bet on it.</p>
+        <div class="evo">
+          <figure><img src="../images/cohost-round1.jpg" alt="Early prototype: a mobile-first Co-host home with a daily briefing, items needing attention and recent activity"><figcaption>Round 1 &middot; A standalone Co-host home with a daily briefing.</figcaption></figure>
+          <figure><img src="../images/cohost-round2.jpg" alt="Second prototype: a dark persistent side panel next to the reservations table"><figcaption>Round 2 &middot; A persistent side panel. Killed in testing.</figcaption></figure>
+          <figure><img src="../images/cohost-hero.jpg" alt="Final direction: a docked drawer in the bottom-right corner of the dashboard"><figcaption>Final &middot; A docked drawer that meets hosts where they already work.</figcaption></figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="lv-row">
+      <div class="lv-k">The Design</div>
+      <div class="lv-v">
+        <h3 style="margin-top:0;">Entry: a product, not a bot</h3>
+        <p>We rejected every default: no chat bubble, no full-screen takeover, no &ldquo;AI&rdquo; badge shouting for attention.</p>
+        <ul>
+          <li><b>Dock, don&rsquo;t overlay.</b> A drawer at the bottom-right respects the host&rsquo;s existing workflow.</li>
+          <li><b>Show capabilities up front.</b> Concrete prompts, each mapped to a real host job. No blank &ldquo;How can I help?&rdquo; box.</li>
+          <li><b>Same affordances as any feature.</b> A clear introduction, a &ldquo;Try it&rdquo; button and a &ldquo;Learn more&rdquo; link.</li>
+        </ul>
+        <figure class="strip"><img src="../images/cohost-entry-mobile.png" alt="Five mobile screens: the Meet your co-host pill, the introduction sheet, the Chat tab with suggested prompts, the Assistant tab with recommendations, and the minimised Ask co-host pill"></figure>
+        <div class="cap">Mobile entry flow: introduce, try, ask, act, then step back out of the way.</div>
+
+        <h3>Interaction: chat for questions, assistant for tasks</h3>
+        <ul>
+          <li><b>Two modes, two mental models.</b> Chat is for talking about your business. Assistant is for getting things done.</li>
+          <li><b>Answers as documents, not bubbles.</b> Responses render as structured content with headings, lists and tables, so they&rsquo;re easy to skim and save.</li>
+          <li><b>The input stays anchored.</b> Even with a full answer on screen, the next question is one click away.</li>
+        </ul>
+        <figure class="shot"><img src="../images/cohost-chat-desktop.png" alt="Two desktop states: the docked Co-host asking 'Hi Cynthia, what can I do for you?' with Chat and Assistant tabs, and a structured 'Your revenue' answer with the input anchored at the bottom"></figure>
+        <div class="cap">Ask, then answer. The answer is a document, and the input never moves.</div>
+
+        <h3>Trust, made visible</h3>
+        <p>Every recommendation shows its reasoning, its sources and how confident it is. The host approves, adjusts or dismisses, and each choice teaches the Co-host something. Nothing runs silently in the background.</p>
+        <figure class="card-fig"><img src="../images/cohost-rec-card.png" alt="Recommendation card: 'Feb 4–5 underpriced by ~30%'. It explains a local event is driving demand, proposes raising the rate to €140/night with a 2-night minimum, shows net impact +€52/week, lists three data sources (competitor scan, event calendar, booking history) each marked High confidence, and offers Approve, Adjust and Dismiss"></figure>
+        <div class="cap">A proactive recommendation. The data sources expand to show exactly why the Co-host is suggesting this.</div>
+        <figure class="strip" style="margin-top:28px;"><img src="../images/cohost-approve-mobile.png" alt="Four mobile screens of the Assistant tab: recommendations with Discard, Edit and Approve actions, a confirmation check after approving, and the remaining recommendation"></figure>
+        <div class="cap">Approve, edit or discard. One recommendation at a time, confirmed before it runs.</div>
+
+        <h3>Beyond the product</h3>
+        <p>We also explored meeting hosts where they already are: a WhatsApp channel with a daily briefing, pending actions and suggested replies they can send, edit or decline.</p>
+        <figure class="strip strip-narrow"><img src="../images/cohost-whatsapp.png" alt="Two WhatsApp screens from the Lodgify Co-Host: a morning summary of occupancy, next check-in and new bookings, and a guest message with a suggested reply and Send, Edit and Decline buttons"></figure>
+        <div class="cap">WhatsApp concept: the same principles, in the host&rsquo;s own inbox.</div>
+      </div>
+    </div>
+
+    <div class="lv-row">
+      <div class="lv-k">Beyond UI</div>
+      <div class="lv-v">
+        <ul>
+          <li><b>Design system.</b> Extended Garden, our design system, with 12 new AI-state components: streaming state, response card, persona tabs, suggested prompts, inline confirmation, error and retry, docked drawer and its mobile variant, and more.</li>
+          <li><b>Response rendering.</b> Wrote the spec for structured responses with engineering, not the other way round.</li>
+          <li><b>Streaming behaviour.</b> Token-by-token or chunked was decided by testing, not by default.</li>
+          <li><b>Failure states.</b> Designed with the ML team: what happens when the model is uncertain, rate-limited or wrong.</li>
+          <li><b>Privacy.</b> The Co-host only references the host&rsquo;s own data, and every citation links back to its source.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lv-row">
+      <div class="lv-k">Outcome</div>
+      <div class="lv-v">
+        <p><b>It shipped.</b> The Co-host is a live Lodgify feature, and the pattern set a precedent: this is how Lodgify designs AI.</p>
+        <div class="stats stats-tight">
+          <div class="stat"><div class="n">12</div><div class="d">new design-system components, reusable for the next AI features.</div></div>
+          <div class="stat"><div class="n">5&thinsp;&rarr;&thinsp;1</div><div class="d">directions tested. Two killed, one landed.</div></div>
+          <div class="stat"><div class="n">1 pass</div><div class="d">through three stakeholder reviews. Every decision traced to a user quote or a measured drop-off.</div></div>
+        </div>
+        <p style="margin-top:22px;">Product now writes PRDs using the same three words: trust, transparency, context. And design earned a seat in AI conversations, instead of working downstream of engineering&rsquo;s model choices.</p>
+        <h3>What I&rsquo;d do differently</h3>
+        <p>I ran the first sprint at concept altitude a week too long. The team was polishing a Figma direction before we&rsquo;d pressure-tested it with customers. Next time: an ugly clickable prototype in hosts&rsquo; hands within five days, not ten. Testing is the only real feedback loop. Team debate is just plausible opinion.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="next-case">
+    <a href="netsuite-design-system.html">Next case study: NetSuite Design System &rarr;</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="f-copy">&copy; 2026 Marc Verdera</div>
+    <div class="f-loc">Barcelona / Everywhere</div>
+  </div>
+</footer>
+
+</body>
+</html>

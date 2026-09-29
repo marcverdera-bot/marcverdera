@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lodgify Design System — Marc Verdera</title>
+<meta name="description" content="Garden: one design system and 26 UX patterns for a ten-year-old platform.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lodgify Design System — Marc Verdera">
+<meta property="og:description" content="Garden: one design system and 26 UX patterns for a ten-year-old platform.">
+<meta property="og:url" content="https://marcverdera.vercel.app/case-studies/lodgify-design-system">
+<meta property="og:image" content="https://marcverdera.vercel.app/images/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="back" href="../index.html#work">&larr; Selected work</a>
+    <span class="tag">Case Study</span>
+  </div>
+</nav>
+
+<header class="cs-hero">
+  <div class="wrap">
+    <hr class="rule">
+    <h1>Lodgify Design System</h1>
+    <p class="lead">Garden: one system, one language, for a ten-year-old platform.</p>
+    <div class="cs-tags-row">
+      <span>Design System &middot; IA &middot; 26 UX Patterns &middot; Team of 10</span>
+      <span class="year">2022&ndash;2025</span>
+    </div>
+    <figure class="cs-photo">
+      <img src="../images/lds-hero.jpg" alt="The transition plan on one slide: today's reservations screen with UI and UX inconsistencies on the left, the transition-period redesign in the centre with a booking list, calendar, quote and invoices, and the rebranded vision on the right">
+      <figcaption class="cap-line">Today, transition, vision. Tokens and UX alignment first, the rebrand after.</figcaption>
+    </figure>
+  </div>
+</header>
+
+<section style="padding-top:0; border-top:none;">
+  <div class="wrap">
+    <hr class="rule" style="margin-bottom:0;">
+
+    <div class="lv-row">
+      <div class="lv-k">Context</div>
+      <div class="lv-v">
+        <p>Lodgify is a successful B2B platform for vacation-rental hosts, about ten years old when I joined. It had two designers covering the whole product, no design system and no shared source of truth. Every screen was reinvented.</p>
+        <p>I led Garden, Lodgify&rsquo;s design system, end to end: the information architecture, the UX patterns, and the team I grew around it from 2 to 10.</p>
+      </div>
+    </div>
+
+    <div class="lv-row">
+      <div class="lv-k">The Problem</div>
+      <div class="lv-v">
+        <p><b>Lodgify needed one language for its user experience, because every squad was solving the same problems differently, and the product felt inconsistent to the people using it.</b></p>
+        <p>Designers had no guidelines to follow. Design and development kept reinventing the wheel. PM, design and front-end didn&rsquo;t speak the same language. Editing data alone worked four different ways:</p>
+        <figure class="shot"><img src="../images/lds-before.jpg" alt="Four screenshots of the same task, editing data, done four ways: inline on the page, in a slide-in panel, in a modal, and in a modal opened from inside another panel"></figure>
+        <div class="cap">Before: in-page inline editing, edit in a slide-in panel, edit in a modal, and a modal opened from inside a panel.</div>
+      </div>
+    </div>
+
+    <div class="lv-row">
+      <div class="lv-k">Approach</div>
+      <div class="lv-v">
+        <p>A design system is more than components. It&rsquo;s how we design at Lodgify, and how the world perceives us as a product. Garden&rsquo;s hardest problem wasn&rsquo;t design. It was convincing a ten-year-old company to bet on it, so I sequenced the work deliberately.</p>
+        <ol>
+          <li><b>Adoption over invention.</b> Start with the 15 core components that cover 80% of screens, documented in Figma and in code, with front-end leads owning tokens and contribution rules alongside us.</li>
+          <li><b>Prove value before asking for more.</b> Track adoption per squad and surface the wins in weekly reviews. Make the system the path of least resistance.</li>
+          <li><b>One source of truth.</b> A design catalog, the Figma libraries and the UI libraries in code kept in parity, with a clear governance model for who changes what.</li>
+          <li><b>Transition, then rebrand.</b> Align tokens and UX first, with small look-and-feel tweaks, so the product improved immediately and the later rebrand had solid ground.</li>
+          <li><b>Raise the bar as the team grows.</b> A rebuilt hiring loop and weekly critique, so each new designer strengthened the system instead of diluting it.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="lv-row">
+      <div class="lv-k">The System</div>
+      <div class="lv-v">
+        <h3 style="margin-top:0;">Philosophy</h3>
+        <p>Four principles, each tied to the patterns that deliver it:</p>
+        <div class="values">
+          <div class="value">Confidence and mastery<span>Hosts feel in control, because the impact of every action is made clear. Navigation, saving and loading patterns.</span></div>
+          <div class="value">Organic yet robust<span>Predictable motion and micro-interactions build the feeling of a secure platform. Animation, loading and UI foundations.</span></div>
+          <div class="value">Real-world intuition<span>Data is edited in the same context where it&rsquo;s viewed. Edit/view and data-entry patterns.</span></div>
+          <div class="value">Always by your side<span>Human and AI support, there when hosts need it. AI, messaging and assistance patterns.</span></div>
+        </div>
+
+        <h3>Three layers</h3>
+        <p>Foundations (tokens) feed components, built atomically from atoms to pages. On top sits the layer that makes Garden more than a component library: UX patterns, the common behaviours every squad reuses.</p>
+        <figure class="shot"><img src="../images/lds-ia.jpg" alt="Garden's information architecture: foundations (colours, typography, icons, elevation, grid, spacing, keyboard interactions, accessibility, mobile UI), components from atoms to molecules, organisms, templates and pages, and a UX patterns layer covering AI, edit/view, filtering, saving, loading, data entry, error validation, status and empty states"></figure>
+        <div class="cap">Garden&rsquo;s information architecture: foundations, components and UX patterns.</div>
+
+        <h3>A navigation model for the whole platform</h3>
+        <p>Every screen in Lodgify maps to one of three levels: entry points, distributive pages and editable pages. Editing happens in a side sheet, next to the content it changes. That single rule replaced the four ways of editing.</p>
+        <figure class="shot"><img src="../images/lds-nav.jpg" alt="Navigation model with three levels: level 1 entry point such as the dashboard, level 2 distributive pages such as marketplace, settings and rental list using cards or lists, and level 3 editable pages such as rental, apps marketplace and payments, which open a side sheet to edit"></figure>
+        <div class="cap">Entry points, distributive pages, editable pages.</div>
+
+        <h3>26 UX patterns</h3>
+        <p>I personally authored 26 UX patterns: navigation, discoverability, create, edit/view, delete, forms, error validation, notifications, saving, loading, status, filtering, search, table vs. list, empty states, responsive and mobile, and more. Each is the single answer to a recurring question, documented and versioned.</p>
+        <figure class="shot"><img src="../images/lds-docs.jpg" alt="Three pattern documents side by side: the navigation model pattern, the edit/view pattern with its preview card and side sheet, and the saving model pattern"></figure>
+        <div class="cap">Three of the 26 pattern documents: navigation model, edit/view and saving model.</div>
+        <figure class="shot" style="margin-top:26px;"><img src="../images/lds-sidesheet.jpg" alt="Reservations screen, blurred, with a side sheet open on the right titled 'Create a new rental type', a room type field, a guest counter, and a primary action with cancel"></figure>
+        <div class="cap">The edit/view and saving patterns in the product: a side sheet with an explicit save.</div>
+      </div>
+    </div>
+
+    <div class="lv-row">
+      <div class="lv-k">Outcome</div>
+      <div class="lv-v">
+        <p><b>Garden became the operational backbone for both Lodgify&rsquo;s AI features and its full brand relaunch.</b> When we designed the <a href="lodgify-cohost.html">AI Co-Host</a>, we extended Garden with 12 new AI-state components instead of starting from scratch.</p>
+        <div class="stats stats-tight">
+          <div class="stat"><div class="n">26</div><div class="d">UX patterns, authored personally.</div></div>
+          <div class="stat"><div class="n">1</div><div class="d">IA model across the whole platform.</div></div>
+          <div class="stat"><div class="n">10+</div><div class="d">product areas now share one language.</div></div>
+        </div>
+        <blockquote style="margin-top:30px;">&ldquo;The Design System is one of the most critical assets we have as we scale Lodgify 2.0. It&rsquo;s the backbone that allows us to move faster, stay consistent, and deliver high-quality experiences at scale.&rdquo;</blockquote>
+        <p class="cap" style="margin-top:-8px;">Chief Product &amp; Design Officer, Lodgify</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="next-case">
+    <a href="netsuite-next.html">Next case study: NetSuite Next &rarr;</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="f-copy">&copy; 2026 Marc Verdera</div>
+    <div class="f-loc">Barcelona / Everywhere</div>
+  </div>
+</footer>
+
+</body>
+</html>

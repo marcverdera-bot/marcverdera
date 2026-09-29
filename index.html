@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marc Verdera — Product Design Leader</title>
+<meta name="description" content="Product design leader with 20+ years across Oracle NetSuite and Lodgify. Design systems that scale, and AI-native products people trust.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Marc Verdera — Product Design Leader">
+<meta property="og:description" content="Product design leader with 20+ years across Oracle NetSuite and Lodgify. Design systems that scale, and AI-native products people trust.">
+<meta property="og:url" content="https://marcverdera.vercel.app/">
+<meta property="og:image" content="https://marcverdera.vercel.app/images/og.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<style>
+/* ============================================================
+   Marc Verdera — Portfolio
+   Editorial system: serif display + uppercase sans labels,
+   cream/near-black light palette, inverted dark palette.
+   Mobile-first: base rules target phone width; min-width
+   media queries layer on the desktop layout.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ---------- Tokens ---------- */
+:root {
+  --bg: #f7f5f0;
+  --surface: #efebe2;
+  --fg: #2a2620;
+  --heading: #16130f;
+  --accent: #16130f;
+  --muted: #857f74;
+  --faint: #a49d90;
+  --line: #ddd6c8;
+  --warn: #a1531f;
+  --nav-bg: rgba(247,245,240,0.90);
+  --dash: #c9c0af;
+  --max: 1040px;
+  --measure: 760px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #15130f;
+    --surface: #1e1b15;
+    --fg: #e6e1d6;
+    --heading: #f7f4ec;
+    --accent: #f7f4ec;
+    --muted: #948c7c;
+    --faint: #6e6858;
+    --line: #332e25;
+    --warn: #dd8551;
+    --nav-bg: rgba(21,19,15,0.88);
+    --dash: #453f32;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #15130f;
+  --surface: #1e1b15;
+  --fg: #e6e1d6;
+  --heading: #f7f4ec;
+  --accent: #f7f4ec;
+  --muted: #948c7c;
+  --faint: #6e6858;
+  --line: #332e25;
+  --warn: #dd8551;
+  --nav-bg: rgba(21,19,15,0.88);
+  --dash: #453f32;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--fg);
+  background: var(--bg);
+  line-height: 1.65;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+.serif { font-family: 'Playfair Display', Georgia, 'Times New Roman', serif; }
+.rule { border: none; border-top: 1px solid var(--line); margin: 0; }
+
+/* ---------- Nav ---------- */
+.nav {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50;
+  background: var(--nav-bg);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 58px; flex-wrap: wrap; gap: 8px 20px; padding-top: 6px; padding-bottom: 6px; }
+.nav .brand {
+  font-weight: 700; color: var(--heading); text-decoration: none;
+  font-size: 12px; letter-spacing: 1.2px; text-transform: uppercase;
+}
+.nav .links { display: flex; align-items: center; gap: 16px; }
+.nav .links a { color: var(--fg); text-decoration: none; font-size: 13px; font-weight: 500; }
+.nav .links a:hover { color: var(--muted); }
+.nav .back { font-size: 12.5px; font-weight: 500; color: var(--fg); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+.nav .back:hover { color: var(--muted); }
+.nav .tag { font-size: 10.5px; font-weight: 600; letter-spacing: 1.4px; text-transform: uppercase; color: var(--faint); }
+
+/* ---------- Eyebrow / labels ---------- */
+.eyebrow, .label {
+  font-size: 11px; font-weight: 600; letter-spacing: 1.4px; text-transform: uppercase;
+  color: var(--faint);
+}
+.eyebrow { margin-bottom: 16px; }
+
+/* ---------- Hero (home) ---------- */
+.hero { padding: 36px 0 0 0; }
+.hero .top-row {
+  display: flex; align-items: flex-end; justify-content: space-between; gap: 20px;
+  flex-wrap: wrap; margin-bottom: 16px;
+}
+.hero h1 {
+  font-family: 'Playfair Display', Georgia, serif; font-weight: 600;
+  font-size: 32px; line-height: 1.14; color: var(--heading); margin: 0 0 18px 0;
+  letter-spacing: -0.2px; text-wrap: balance; max-width: 16ch;
+}
+.hero .row-split {
+  display: flex; justify-content: space-between; align-items: flex-start; gap: 24px;
+  flex-wrap: wrap; padding-bottom: 24px;
+}
+.hero .sub { font-size: 15.5px; color: var(--fg); max-width: 46ch; margin: 0; }
+.hero .tagline { font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: var(--faint); padding-top: 4px; }
+
+/* ---------- Placeholder / original art frames ---------- */
+.hero-media, .photo-frame {
+  margin: 0; border-radius: 2px; overflow: hidden;
+  background: var(--surface); border: 1px solid var(--line);
+}
+.art-frame { display: block; width: 100%; height: auto; }
+.art-frame svg { display: block; width: 100%; height: auto; }
+.hero-media .cap, .photo-frame .cap {
+  font-size: 12.5px; font-style: italic; color: var(--muted);
+  padding: 12px 16px 16px 16px; font-family: 'Playfair Display', Georgia, serif;
+  border-top: 1px solid var(--line);
+}
+
+/* ---------- Sections ---------- */
+section { padding: 46px 0; border-top: 1px solid var(--line); }
+section:first-of-type { border-top: none; }
+.section-top {
+  display: flex; flex-direction: column; gap: 12px;
+  margin-bottom: 30px;
+}
+.section-top .note { font-size: 15.5px; color: var(--fg); max-width: 42ch; }
+h2 {
+  font-family: 'Playfair Display', Georgia, serif; font-weight: 600;
+  font-size: 24px; color: var(--heading); margin: 0; text-wrap: balance;
+}
+h3 { font-size: 12.5px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin: 26px 0 12px 0; }
+p { margin: 0 0 16px 0; color: var(--fg); max-width: var(--measure); }
+ul, ol { padding-left: 20px; margin: 0 0 16px 0; max-width: var(--measure); }
+li { margin-bottom: 10px; }
+
+/* ---------- Selected Projects (row list, home) ---------- */
+.proj-list { display: flex; flex-direction: column; }
+.proj-row {
+  text-decoration: none; color: inherit;
+  padding: 26px 0; border-top: 1px solid var(--line);
+  display: flex; flex-direction: column; gap: 10px;
+}
+.proj-list .proj-row:last-child { border-bottom: 1px solid var(--line); }
+.proj-row .proj-main { max-width: 60ch; }
+.proj-row h3.proj-title {
+  font-family: 'Playfair Display', Georgia, serif; font-weight: 600; font-style: normal;
+  font-size: 22px; color: var(--heading); margin: 0 0 8px 0; text-transform: none;
+  letter-spacing: 0; text-wrap: balance;
+}
+.proj-row .proj-desc { font-size: 15px; color: var(--muted); margin: 0; max-width: 52ch; }
+.proj-row .proj-meta {
+  font-size: 10.5px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+  color: var(--faint); display: flex; align-items: center; gap: 8px;
+}
+.proj-row .proj-meta .arrow { font-size: 13px; transition: transform .15s ease; }
+.proj-row:hover .proj-title { color: var(--muted); }
+.proj-row:hover .proj-meta .arrow { transform: translate(2px,-2px); }
+
+/* ---------- Pull-quote / How I Work ---------- */
+.pull-quote {
+  font-family: 'Playfair Display', Georgia, serif; font-weight: 500;
+  font-size: 22px; line-height: 1.4; color: var(--heading); margin: 0; max-width: 30ch;
+  text-wrap: balance;
+}
+
+/* ---------- Recommendations slider ---------- */
+.rec-slider { position: relative; }
+.rec-viewport { overflow: hidden; }
+.rec-track { display: flex; transition: transform .45s cubic-bezier(.65,0,.35,1); touch-action: pan-y; }
+.rec-slide { flex: 0 0 100%; max-width: 100%; padding-right: 6px; }
+.rec-card {
+  border: 1.5px dashed var(--dash); border-radius: 2px; background: var(--surface);
+  padding: 26px 24px; min-height: 200px;
+}
+.rec-name { font-size: 12.5px; font-weight: 700; letter-spacing: 0.5px; color: var(--heading); }
+.rec-role { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 14px; color: var(--muted); margin: 2px 0 16px 0; }
+.rec-quote { font-size: 15px; color: var(--muted); font-style: italic; font-family: 'Playfair Display', Georgia, serif; margin: 0; max-width: 60ch; }
+.rec-controls { display: flex; align-items: center; justify-content: space-between; margin-top: 20px; gap: 16px; }
+.rec-dots { display: flex; gap: 8px; }
+.rec-dot { width: 7px; height: 7px; border-radius: 50%; border: none; background: var(--line); padding: 0; cursor: pointer; }
+.rec-dot.is-active { background: var(--heading); }
+.rec-arrows { display: flex; gap: 10px; }
+.rec-arrow-btn {
+  border: 1px solid var(--line); background: var(--bg); color: var(--heading);
+  width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  cursor: pointer; font-size: 15px; line-height: 1;
+}
+.rec-arrow-btn:hover { border-color: var(--fg); }
+.rec-arrow-btn:focus-visible { outline: 2px solid var(--heading); outline-offset: 2px; }
+
+/* ---------- Contact strip (home) ---------- */
+.contact-strip { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.contact-strip a {
+  font-size: 18px; text-decoration: none; color: var(--heading); border-bottom: 1px solid var(--fg);
+  padding-bottom: 2px; display: inline-flex; align-items: center; gap: 10px;
+  font-family: 'Playfair Display', Georgia, serif;
+}
+.contact-strip a:hover { color: var(--muted); border-color: var(--muted); }
+
+/* ---------- Case study: label / value rows ---------- */
+.cs-hero { padding-top: 28px; }
+.cs-hero .wrap > .rule:first-child { margin-bottom: 24px; }
+.cs-hero h1 {
+  font-family: 'Playfair Display', Georgia, serif; font-weight: 600;
+  font-size: 34px; line-height: 1.08; color: var(--heading); margin: 0 0 16px 0;
+  letter-spacing: -0.2px;
+}
+.cs-hero .lead {
+  font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-style: normal;
+  font-size: 18px; line-height: 1.4; color: var(--fg); max-width: 44ch; margin: 0 0 24px 0;
+}
+.cs-tags-row {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
+  padding: 16px 0; font-size: 10.5px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+  color: var(--faint);
+}
+.cs-tags-row .year { color: var(--faint); }
+.cs-photo { margin: 0; border-radius: 2px; overflow: hidden; }
+.cs-photo img { width: 100%; }
+.cs-photo .cap-line {
+  font-size: 12px; color: var(--faint); font-style: italic; padding: 10px 0 0 0;
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.lv-row { display: flex; flex-direction: column; gap: 10px; padding: 26px 0; border-top: 1px solid var(--line); }
+.lv-row:last-of-type { border-bottom: 1px solid var(--line); }
+.lv-row .lv-k {
+  font-size: 10.5px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+  color: var(--faint);
+}
+.lv-row .lv-v { max-width: 640px; }
+.lv-row .lv-v p:last-child { margin-bottom: 0; }
+.lv-row .lv-v ul, .lv-row .lv-v ol { margin-bottom: 0; }
+
+/* ---------- Recreated diagrams (restyled to editorial palette) ---------- */
+.diagram { display: flex; flex-direction: column; gap: 1px; margin: 6px 0 4px 0; background: var(--line); border-radius: 2px; overflow: hidden; }
+.d-layer { padding: 16px 18px; background: var(--bg); }
+.d-layer .d-k { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--faint); }
+.d-layer .d-t { font-family: 'Playfair Display', Georgia, serif; font-size: 17px; font-weight: 600; margin: 3px 0 4px 0; color: var(--heading); }
+.d-layer .d-d { font-size: 13px; color: var(--muted); }
+.pipeline { display: flex; gap: 1px; margin: 6px 0 4px 0; flex-wrap: wrap; background: var(--line); border-radius: 2px; overflow: hidden; }
+.p-step { flex: 1; min-width: 120px; padding: 16px 12px; text-align: center; background: var(--bg); }
+.p-step .p-n { font-size: 10px; color: var(--faint); font-weight: 700; letter-spacing: 1px; }
+.p-step .p-t { font-family: 'Playfair Display', Georgia, serif; font-size: 14px; font-weight: 600; color: var(--heading); margin-top: 5px; }
+.cap { font-size: 12px; color: var(--faint); font-style: italic; margin-top: 10px; font-family: 'Playfair Display', Georgia, serif; }
+
+/* ---------- Real / placeholder images ---------- */
+.shot { border-radius: 2px; overflow: hidden; border: 1px solid var(--line); margin: 6px 0 4px 0; }
+.shot img { width: 100%; }
+.placeholder {
+  border: 1.5px dashed var(--dash); border-radius: 2px; background: var(--surface);
+  color: var(--muted); font-size: 13px; font-style: italic; text-align: center;
+  display: flex; align-items: center; justify-content: center; padding: 22px; min-height: 140px;
+  margin: 6px 0 4px 0; font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* ---------- Callout ---------- */
+.callout {
+  background: var(--surface); border-left: 2px solid var(--heading);
+  padding: 16px 20px; font-size: 14px; color: var(--fg); margin: 20px 0; max-width: var(--measure);
+}
+.fillin { color: var(--warn); font-style: italic; }
+
+/* ---------- Next case study ---------- */
+.next-case {
+  display: flex; justify-content: space-between; align-items: center; padding: 28px 0; gap: 16px; flex-wrap: wrap;
+}
+.next-case a { text-decoration: none; color: var(--heading); font-size: 13.5px; font-weight: 500; display: inline-flex; align-items: center; gap: 8px; }
+.next-case a:hover { color: var(--muted); }
+
+/* ---------- Meta row (about / contact pages) ---------- */
+.meta-row { display: flex; flex-direction: column; gap: 20px; margin: 0; padding: 0; }
+.meta-item { min-width: 0; }
+.meta-item .meta-k { font-size: 10.5px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--faint); margin-bottom: 6px; }
+.meta-item .meta-v { font-size: 16px; color: var(--heading); font-family: 'Playfair Display', Georgia, serif; }
+.meta-item .meta-v a { text-decoration: none; border-bottom: 1px solid var(--line); }
+.meta-item .meta-v a:hover { border-color: var(--fg); }
+
+/* ---------- Footer ---------- */
+footer { border-top: 1px solid var(--line); padding: 26px 0 calc(36px + env(safe-area-inset-bottom, 0px)) 0; }
+footer .wrap { display: flex; flex-direction: column; gap: 8px; }
+footer .f-copy { font-size: 10.5px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--faint); }
+footer .f-loc { font-size: 10.5px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--faint); }
+
+/* ---------- About photo ---------- */
+.photo-ph {
+  width: 128px; height: 128px; border-radius: 50%; overflow: hidden;
+  background: var(--surface); border: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 22px;
+}
+.photo-ph .mono {
+  font-family: 'Playfair Display', Georgia, serif; font-weight: 600; font-size: 34px; color: var(--heading);
+}
+.photo-ph-cap { font-size: 11.5px; color: var(--muted); font-style: italic; margin: -12px 0 22px 0; font-family: 'Playfair Display', Georgia, serif; }
+blockquote {
+  font-family: 'Playfair Display', Georgia, serif; font-weight: 500;
+  margin: 22px 0; padding: 0 0 0 20px; border-left: 2px solid var(--heading);
+  font-size: 18px; line-height: 1.45; color: var(--heading); max-width: 60ch;
+}
+
+/* ============================================================
+   Desktop layer — min-width 700px
+   ============================================================ */
+@media (min-width: 700px) {
+  .wrap { padding: 0 28px; }
+  .nav .wrap { height: 68px; }
+  .nav .brand { font-size: 13.5px; letter-spacing: 1.6px; }
+  .nav .links { gap: 30px; }
+  .nav .links a { font-size: 14px; }
+  .nav .tag { font-size: 11px; }
+
+  .hero { padding: 56px 0 0 0; }
+  .hero h1 { font-size: 54px; margin-bottom: 22px; letter-spacing: -0.4px; }
+  .hero .row-split { padding-bottom: 32px; }
+  .hero .sub { font-size: 16.5px; }
+  .hero .tagline { font-size: 12px; }
+
+  .hero-media, .photo-frame { min-height: 0; }
+
+  section { padding: 68px 0; }
+  .section-top { flex-direction: row; justify-content: space-between; align-items: baseline; gap: 24px; margin-bottom: 44px; }
+  .section-top .note { text-align: right; }
+  h2 { font-size: 28px; }
+
+  .proj-row { flex-direction: row; justify-content: space-between; align-items: flex-start; padding: 34px 0; gap: 24px; }
+  .proj-row h3.proj-title { font-size: 27px; }
+  .proj-row .proj-desc { font-size: 15.5px; }
+  .proj-row .proj-meta { text-align: right; white-space: nowrap; padding-top: 6px; font-size: 11px; }
+
+  .pull-quote { font-size: 27px; }
+
+  .rec-card { padding: 34px 38px; }
+  .rec-quote { font-size: 16px; }
+
+  .contact-strip a { font-size: 20px; }
+
+  .cs-hero { padding-top: 40px; }
+  .cs-hero .wrap > .rule:first-child { margin-bottom: 32px; }
+  .cs-hero h1 { font-size: 58px; margin-bottom: 22px; letter-spacing: -0.5px; }
+  .cs-hero .lead { font-size: 22px; margin-bottom: 32px; }
+  .cs-tags-row { padding: 20px 0; font-size: 11.5px; }
+
+  .lv-row { flex-direction: row; gap: 40px; padding: 34px 0; }
+  .lv-row .lv-k { flex: 0 0 170px; font-size: 11.5px; padding-top: 2px; }
+  .lv-row .lv-v { flex: 1 1 420px; }
+
+  .meta-row { flex-direction: row; flex-wrap: wrap; gap: 32px; }
+  .meta-item .meta-v { font-size: 17px; }
+
+  footer .wrap { flex-direction: row; justify-content: space-between; align-items: center; }
+
+  .photo-ph { width: 152px; height: 152px; }
+  .photo-ph .mono { font-size: 40px; }
+}
+
+@media (min-width: 960px) {
+  .hero h1 { max-width: 16ch; }
+  .cs-photo .hero-media { min-height: 420px; }
+}
+
+
+/* ---------- Case study figures, values, track record ---------- */
+figure { margin: 0; }
+.shot img, .cs-photo img { width: 100%; height: auto; }
+.values { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 2px; overflow: hidden; }
+.value { background: var(--bg); padding: 16px 18px; font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-weight: 600; color: var(--heading); }
+.stats { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--line); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.stat { background: var(--bg); padding: 22px 0; }
+.stat .n { font-family: 'Playfair Display', Georgia, serif; font-weight: 600; font-size: 38px; line-height: 1; color: var(--heading); }
+.stat .d { font-size: 14.5px; color: var(--muted); margin-top: 10px; max-width: 30ch; }
+.timeline { list-style: none; padding: 0; margin: 32px 0 0 0; max-width: none; display: grid; grid-template-columns: 1fr; gap: 14px; }
+.timeline li { margin: 0; display: flex; gap: 16px; align-items: baseline; }
+.timeline .y { flex: 0 0 48px; font-size: 11px; font-weight: 600; letter-spacing: 1px; color: var(--faint); }
+.timeline .r { font-size: 15px; color: var(--fg); }
+.hero-media img { width: 100%; height: auto; }
+@media (min-width: 700px) {
+  .values { grid-template-columns: 1fr 1fr; }
+  .stats { grid-template-columns: repeat(3, 1fr); background: none; gap: 32px; }
+  .stat { padding: 30px 0; }
+  .stat .n { font-size: 48px; }
+  .timeline { grid-template-columns: repeat(3, 1fr); gap: 20px 32px; }
+  .timeline li { flex-direction: column; gap: 4px; }
+  .timeline .y { flex: none; }
+}
+
+.tl-figure { display: none; margin: 36px 0 0 0; }
+.tl-figure svg { display: block; width: 100%; height: auto; }
+.rec-card { border-style: solid; border-width: 1px; border-color: var(--line); }
+.rec-quote { color: var(--fg); font-style: normal; font-size: 16px; line-height: 1.6; margin: 0 0 14px 0; }
+.rec-quote:last-of-type { margin-bottom: 22px; }
+.rec-name a { text-decoration: none; border-bottom: 1px solid var(--line); }
+.rec-name a:hover { border-color: var(--fg); }
+.rec-role { margin: 4px 0 0 0; }
+@media (min-width: 700px) {
+  .tl-figure { display: block; }
+  .timeline { display: none; }
+  .rec-quote { font-size: 17.5px; }
+}
+
+/* ---------- Hero (impact) ---------- */
+.hero-x { padding-top: 40px; padding-bottom: 8px; }
+.hx-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; margin-bottom: 28px; }
+.hx-proof { font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted); }
+.hx-proof span { color: var(--faint); margin: 0 6px; }
+.hero-x .hx-title { font-family: 'Playfair Display', Georgia, serif; font-weight: 600; font-size: clamp(44px, 9.2vw, 108px); line-height: 1.0; letter-spacing: -0.02em; color: var(--heading); margin: 0 0 30px 0; max-width: none; text-wrap: balance; }
+.hx-title em { font-style: italic; font-weight: 500; color: var(--muted); }
+.hx-row { display: flex; flex-direction: column; gap: 22px; padding: 24px 0 34px 0; border-top: 1px solid var(--line); }
+.hx-sub { font-size: 17px; line-height: 1.6; color: var(--fg); margin: 0; max-width: 52ch; }
+.hx-cta { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+.btn-primary { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 22px; background: var(--heading); color: var(--bg); text-decoration: none; font-size: 14px; font-weight: 600; letter-spacing: 0.3px; border-radius: 2px; }
+.btn-primary:hover { opacity: .88; }
+.btn-link { font-size: 14px; font-weight: 600; color: var(--heading); text-decoration: none; border-bottom: 1px solid var(--heading); padding-bottom: 2px; }
+.btn-link:hover { color: var(--muted); border-color: var(--muted); }
+.mosaic { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.tile { position: relative; display: block; overflow: hidden; border-radius: 2px; background: var(--surface); border: 1px solid var(--line); text-decoration: none; aspect-ratio: 4 / 3; }
+.tile-a { grid-column: 1 / -1; aspect-ratio: 16 / 9; }
+.tile img { width: 100%; height: 100%; object-fit: cover; object-position: top left; transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+.tile:hover img { transform: scale(1.03); }
+.tile-cap { position: absolute; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; gap: 2px; padding: 26px 14px 12px 14px; background: linear-gradient(to top, rgba(18,16,12,.82), rgba(18,16,12,0)); color: #f7f4ec; }
+.tile-cap b { font-family: 'Playfair Display', Georgia, serif; font-size: 16px; font-weight: 600; }
+.tile-cap i { font-style: normal; font-size: 10.5px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: rgba(247,244,236,.78); }
+.tile:focus-visible { outline: 2px solid var(--heading); outline-offset: 3px; }
+@media (min-width: 700px) {
+  .hero-x { padding-top: 64px; }
+  .hx-row { flex-direction: row; justify-content: space-between; align-items: flex-end; gap: 40px; }
+  .hx-sub { font-size: 18px; }
+  .mosaic { grid-template-columns: 1.6fr 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 12px; height: 520px; }
+  .tile, .tile-a { aspect-ratio: auto; }
+  .tile-a { grid-column: 1; grid-row: 1 / 3; }
+  .tile-b { grid-column: 2 / 4; grid-row: 1; }
+  .tile-c { grid-column: 2; grid-row: 2; }
+  .tile-d { grid-column: 3; grid-row: 2; }
+  .tile-cap b { font-size: 18px; }
+}
+
+.tile-a img { object-position: 88% 22%; }
+.tile-b img { object-position: 100% 100%; }
+.tile-d { grid-column: 1 / -1; aspect-ratio: 16 / 9; }
+.tile-d img { object-position: 0 18%; }
+@media (min-width: 700px) { .tile-d { grid-column: 3; grid-row: 2; aspect-ratio: auto; } }
+
+.rec-track { align-items: flex-start; }
+.rec-viewport { transition: height .45s cubic-bezier(.65,0,.35,1); }
+.rec-card { min-height: 0; }
+/* ---------- Mobile touch targets & legibility ---------- */
+.nav .brand, .nav .links a, .nav .back { display: inline-flex; align-items: center; min-height: 44px; }
+.nav .links a { padding: 0 2px; }
+.next-case a { min-height: 44px; }
+.meta-item .meta-v a, .rec-name a, .about-links a { display: inline-block; padding: 10px 0; }
+@media (max-width: 699px) {
+  .nav .wrap { height: auto; min-height: 58px; padding-top: 4px; padding-bottom: 4px; }
+  .eyebrow, .label, .lv-row .lv-k, .cs-tags-row, .proj-row .proj-meta, .meta-item .meta-k, .fact .meta-k, footer .f-copy, footer .f-loc, .nav .tag, .hx-proof, .tile-cap i { font-size: 11.5px; }
+  .cap, .cs-photo .cap-line { font-size: 13px; }
+}
+
+.rec-dots { gap: 0; }
+.rec-dot { width: 24px; height: 24px; padding: 8.5px; background-clip: content-box; }
+.rec-dot:focus-visible { outline: 2px solid var(--heading); outline-offset: 0; }
+.rec-arrow-btn { width: 44px; height: 44px; }
+
+.rec-dot.is-active { background-clip: content-box; }
+</style>
+</head>
+<body>
+
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Marc Verdera</a>
+    <div class="links">
+      <a href="index.html#work">Work</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero hero-x">
+  <div class="wrap">
+    <div class="hx-top">
+      <div class="eyebrow" style="margin:0;">Product Design Leader &middot; Barcelona</div>
+      <div class="hx-proof">Oracle NetSuite <span>/</span> Lodgify <span>/</span> Founder, WebCarpet</div>
+    </div>
+    <h1 class="hx-title">Systems that scale.<br><em>AI that people trust.</em></h1>
+    <div class="hx-row">
+      <p class="hx-sub">20+ years turning ambiguous, high-stakes problems into structure: design systems whole companies build on, and AI-native products people are willing to act on. Same skill, different altitudes.</p>
+      <div class="hx-cta">
+        <a class="btn-primary" href="#work">See the work <span aria-hidden="true">&darr;</span></a>
+        <a class="btn-link" href="contact.html">Get in touch</a>
+      </div>
+    </div>
+    <div class="mosaic">
+      <a class="tile tile-a" href="case-studies/netsuite-next.html">
+        <img src="images/nsn-invoice.jpg" alt="NetSuite Next invoice screen with an assistant that finds an unbilled order and asks before adding it">
+        <span class="tile-cap"><b>NetSuite Next</b><i>Zero-to-one concept &middot; Oracle</i></span>
+      </a>
+      <a class="tile tile-b" href="case-studies/lodgify-cohost.html">
+        <img src="images/cohost-hero.jpg" alt="Lodgify Co-Host docked in the corner of the dashboard, introducing what it can do">
+        <span class="tile-cap"><b>Lodgify Co-Host</b><i>AI agent &middot; Shipped</i></span>
+      </a>
+      <a class="tile tile-c" href="case-studies/lodgify-design-system.html">
+        <img src="images/lds-ia.jpg" alt="Garden design system architecture: foundations, components and UX patterns">
+        <span class="tile-cap"><b>Garden</b><i>Design system &middot; Lodgify</i></span>
+      </a>
+      <a class="tile tile-d" href="case-studies/netsuite-design-system.html">
+        <img src="images/nds-template.jpg" alt="NetSuite master layout template, with every page zone mapped to its components">
+        <span class="tile-cap"><b>NetSuite Design System</b><i>Enterprise &middot; Oracle</i></span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<section id="record">
+  <div class="wrap">
+    <div class="section-top">
+      <div class="eyebrow" style="margin-bottom:0;">Track Record</div>
+      <p class="note">Designer, founder, then design leader.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="n">20+</div><div class="d">years designing digital products, from agency to enterprise to startup.</div></div>
+      <div class="stat"><div class="n">10</div><div class="d">product designers led on NetSuite Next, Oracle&rsquo;s Innovation Hub.</div></div>
+      <div class="stat"><div class="n">2&thinsp;&rarr;&thinsp;10</div><div class="d">Lodgify&rsquo;s design function, from 2 designers for 12 PMs to a team spanning design, research and content.</div></div>
+    </div>
+<figure class="tl-figure">
+      <svg viewBox="0 -10 1000 486" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Career timeline 2003 to today: junior web designer 2003, independent product designer 2010, nine-month world trip 2013, founded WebCarpet 2014, Oracle NetSuite 2017, Manager of Experience Design 2020, Lodgify 2022 and Head of Design 2023. Below, skills accumulate: front-end and UI from 2003, UX from 2010, workshops, strategy and people management from 2014, design systems from 2017, design leadership from 2018, AI-native product design from 2020." font-family="Inter, -apple-system, Helvetica, Arial, sans-serif">
+        <line x1="60.0" y1="64" x2="60.0" y2="452" style="stroke:var(--line)" stroke-dasharray="3 4"/>
+<line x1="324.8" y1="64" x2="324.8" y2="452" style="stroke:var(--line)" stroke-dasharray="3 4"/>
+<line x1="476.1" y1="64" x2="476.1" y2="452" style="stroke:var(--line)" stroke-dasharray="3 4"/>
+<line x1="589.6" y1="64" x2="589.6" y2="452" style="stroke:var(--line)" stroke-dasharray="3 4"/>
+<line x1="778.7" y1="64" x2="778.7" y2="452" style="stroke:var(--line)" stroke-dasharray="3 4"/>
+<line x1="703.0" y1="64" x2="703.0" y2="452" style="stroke:var(--line)" stroke-dasharray="3 4"/>
+<line x1="438.3" y1="64" x2="438.3" y2="452" style="stroke:var(--line)" stroke-dasharray="3 4"/>
+<line x1="60" y1="56" x2="930" y2="56" style="stroke:var(--fg)" stroke-width="1.25"/>
+<line x1="930" y1="56" x2="980" y2="56" style="stroke:var(--fg)" stroke-width="1.25" stroke-dasharray="4 5"/>
+<rect x="438.3" y="52.5" width="28.4" height="7" rx="3.5" style="fill:var(--warn)"/>
+<text x="438.3" y="30" style="fill:var(--warn)" font-size="12" text-anchor="start">World trip</text>
+<text x="438.3" y="44" style="fill:var(--warn)" font-size="11" text-anchor="start">9 months · 2013</text>
+<circle cx="60.0" cy="56" r="5.5" style="fill:var(--bg);stroke:var(--heading)" stroke-width="1.5"/>
+<circle cx="324.8" cy="56" r="5.5" style="fill:var(--bg);stroke:var(--heading)" stroke-width="1.5"/>
+<circle cx="476.1" cy="56" r="5.5" style="fill:var(--bg);stroke:var(--heading)" stroke-width="1.5"/>
+<circle cx="589.6" cy="56" r="5.5" style="fill:var(--bg);stroke:var(--heading)" stroke-width="1.5"/>
+<circle cx="778.7" cy="56" r="5.5" style="fill:var(--bg);stroke:var(--heading)" stroke-width="1.5"/>
+<circle cx="703.0" cy="56" r="5.5" style="fill:var(--bg);stroke:var(--heading)" stroke-width="1.5"/>
+<circle cx="816.5" cy="56" r="5.5" style="fill:var(--bg);stroke:var(--heading)" stroke-width="1.5"/>
+<circle cx="930.0" cy="56" r="5.5" style="fill:var(--bg);stroke:var(--heading)" stroke-width="1.5"/>
+<text x="60.0" y="82" style="fill:var(--faint)" font-size="11" font-weight="600" letter-spacing="1">2003</text>
+<text x="60.0" y="100" style="fill:var(--heading)" font-size="12.5">Junior web</text>
+<text x="60.0" y="115" style="fill:var(--heading)" font-size="12.5">designer</text>
+<text x="324.8" y="82" style="fill:var(--faint)" font-size="11" font-weight="600" letter-spacing="1">2010</text>
+<text x="324.8" y="100" style="fill:var(--heading)" font-size="12.5">Independent</text>
+<text x="324.8" y="115" style="fill:var(--heading)" font-size="12.5">product designer</text>
+<text x="476.1" y="82" style="fill:var(--faint)" font-size="11" font-weight="600" letter-spacing="1">2014</text>
+<text x="476.1" y="100" style="fill:var(--heading)" font-size="12.5">Founded</text>
+<text x="476.1" y="115" style="fill:var(--heading)" font-size="12.5">WebCarpet</text>
+<text x="589.6" y="82" style="fill:var(--faint)" font-size="11" font-weight="600" letter-spacing="1">2017</text>
+<text x="589.6" y="100" style="fill:var(--heading)" font-size="12.5">Oracle</text>
+<text x="589.6" y="115" style="fill:var(--heading)" font-size="12.5">NetSuite</text>
+<text x="778.7" y="82" style="fill:var(--faint)" font-size="11" font-weight="600" letter-spacing="1">2022</text>
+<text x="778.7" y="100" style="fill:var(--heading)" font-size="12.5">Lodgify</text>
+<text x="778.7" y="115" style="fill:var(--heading)" font-size="12.5">Head of Design, 2023</text>
+<text x="703.0" y="16" style="fill:var(--faint)" font-size="11" font-weight="600" letter-spacing="1">2020</text>
+<text x="703.0" y="30" style="fill:var(--heading)" font-size="12">Manager, Experience</text>
+<text x="703.0" y="44" style="fill:var(--heading)" font-size="12">Design · Innovation</text>
+<text x="930.0" y="82" style="fill:var(--faint)" font-size="11" font-weight="600" letter-spacing="1" text-anchor="end">TODAY</text>
+<rect x="703.0" y="176" width="227.0" height="22" rx="11" style="fill:var(--surface);stroke:var(--line)"/>
+<text x="918.0" y="191" style="fill:var(--fg)" font-size="10" font-weight="600" letter-spacing="0.9" text-anchor="end">AI-NATIVE PRODUCT DESIGN</text>
+<rect x="627.4" y="206" width="302.6" height="22" rx="11" style="fill:var(--surface);stroke:var(--line)"/>
+<text x="918.0" y="221" style="fill:var(--fg)" font-size="10" font-weight="600" letter-spacing="0.9" text-anchor="end">DESIGN LEADERSHIP</text>
+<rect x="589.6" y="236" width="340.4" height="22" rx="11" style="fill:var(--surface);stroke:var(--line)"/>
+<text x="918.0" y="251" style="fill:var(--fg)" font-size="10" font-weight="600" letter-spacing="0.9" text-anchor="end">DESIGN SYSTEMS</text>
+<rect x="476.1" y="266" width="453.9" height="22" rx="11" style="fill:var(--surface);stroke:var(--line)"/>
+<text x="918.0" y="281" style="fill:var(--fg)" font-size="10" font-weight="600" letter-spacing="0.9" text-anchor="end">PEOPLE MANAGEMENT & MENTORING</text>
+<rect x="476.1" y="296" width="453.9" height="22" rx="11" style="fill:var(--surface);stroke:var(--line)"/>
+<text x="918.0" y="311" style="fill:var(--fg)" font-size="10" font-weight="600" letter-spacing="0.9" text-anchor="end">PRODUCT STRATEGY</text>
+<rect x="476.1" y="326" width="453.9" height="22" rx="11" style="fill:var(--surface);stroke:var(--line)"/>
+<text x="918.0" y="341" style="fill:var(--fg)" font-size="10" font-weight="600" letter-spacing="0.9" text-anchor="end">WORKSHOP FACILITATION</text>
+<rect x="324.8" y="356" width="605.2" height="22" rx="11" style="fill:var(--surface);stroke:var(--line)"/>
+<text x="918.0" y="371" style="fill:var(--fg)" font-size="10" font-weight="600" letter-spacing="0.9" text-anchor="end">UX · IA · INTERACTION DESIGN</text>
+<rect x="60.0" y="386" width="870.0" height="22" rx="11" style="fill:var(--surface);stroke:var(--line)"/>
+<text x="918.0" y="401" style="fill:var(--fg)" font-size="10" font-weight="600" letter-spacing="0.9" text-anchor="end">UI & VISUAL DESIGN</text>
+<rect x="60.0" y="416" width="870.0" height="22" rx="11" style="fill:var(--surface);stroke:var(--line)"/>
+<text x="918.0" y="431" style="fill:var(--fg)" font-size="10" font-weight="600" letter-spacing="0.9" text-anchor="end">FRONT-END: HTML, CSS, JS</text>
+<text x="60.0" y="470" style="fill:var(--faint)" font-size="10.5" font-weight="600" letter-spacing="1">2003</text>
+<text x="930.0" y="470" style="fill:var(--faint)" font-size="10.5" font-weight="600" letter-spacing="1" text-anchor="end">2026</text>
+      </svg>
+      <figcaption class="cap">Each role added a layer. Nothing was dropped along the way.</figcaption>
+    </figure>
+    <ol class="timeline">
+      <li><span class="y">2003</span><span class="r">Web and UI design for banking, media and education clients</span></li>
+      <li><span class="y">2010</span><span class="r">Independent product designer for enterprise and B2B clients</span></li>
+      <li><span class="y">2014</span><span class="r">Founded WebCarpet, a 6-person product agency</span></li>
+      <li><span class="y">2017</span><span class="r">Oracle NetSuite: Central UI Team and design system</span></li>
+      <li><span class="y">2020</span><span class="r">Manager, Experience Design, Global Innovation team</span></li>
+      <li><span class="y">2022</span><span class="r">Lodgify: Product Design Manager, then Head of Design</span></li>
+    </ol>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="section-top">
+      <div class="eyebrow" style="margin-bottom:0;">Selected Projects</div>
+      <p class="note">Two zero-to-one concepts. Two design systems. Enterprise and startup.</p>
+    </div>
+    <div class="proj-list">
+      <a class="proj-row" href="case-studies/netsuite-next.html">
+        <div class="proj-main">
+          <h3 class="proj-title">NetSuite Next</h3>
+          <p class="proj-desc">Defining Oracle's next-generation product concept from zero — still the model it runs on, five years later.</p>
+        </div>
+        <div class="proj-meta"><span>Zero-to-One Concept &middot; 2020</span><span class="arrow">&#8599;</span></div>
+      </a>
+      <a class="proj-row" href="case-studies/lodgify-cohost.html">
+        <div class="proj-main">
+          <h3 class="proj-title">Lodgify Co-Host</h3>
+          <p class="proj-desc">Designing the AI agent that became Lodgify's shipped Co-Host feature.</p>
+        </div>
+        <div class="proj-meta"><span>AI-Native Concept &middot; Shipped Feature</span><span class="arrow">&#8599;</span></div>
+      </a>
+      <a class="proj-row" href="case-studies/netsuite-design-system.html">
+        <div class="proj-main">
+          <h3 class="proj-title">NetSuite Design System</h3>
+          <p class="proj-desc">Unifying a fragmented enterprise UI into one shared design language.</p>
+        </div>
+        <div class="proj-meta"><span>Design System &middot; 2017&ndash;2022</span><span class="arrow">&#8599;</span></div>
+      </a>
+      <a class="proj-row" href="case-studies/lodgify-design-system.html">
+        <div class="proj-main">
+          <h3 class="proj-title">Lodgify Design System</h3>
+          <p class="proj-desc">Garden: one system and 26 UX patterns for a ten-year-old platform.</p>
+        </div>
+        <div class="proj-meta"><span>Design System &middot; 2022&ndash;2025</span><span class="arrow">&#8599;</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="how-i-work">
+  <div class="wrap">
+    <div class="section-top">
+      <div class="eyebrow" style="margin-bottom:0;">How I Work</div>
+    </div>
+    <p class="pull-quote">I deconstruct problems and lead people toward solutions where everyone can say: it makes sense. Lately, that means getting hands-on with AI as a design material — not just a talking point — so I can tell where it raises the bar and where it's just noise.</p>
+  </div>
+</section>
+
+<section id="recommendations">
+  <div class="wrap">
+    <div class="section-top">
+      <div class="eyebrow" style="margin-bottom:0;">Recommendations</div>
+      <p class="note">What people I have worked with say.</p>
+    </div>
+
+    <div class="rec-slider" data-slider>
+      <div class="rec-viewport">
+        <div class="rec-track">
+
+          <div class="rec-slide">
+            <figure class="rec-card">
+              <p class="rec-quote">Marc is a class act! I worked with Marc as he came into NetSuite and saw him grow firsthand into a Senior Leader within the organization. Marc has always brought an amazing attitude of positivity and empathy to the team and projects he led.</p>
+              <p class="rec-quote">Marc&rsquo;s design approach is top-notch, he takes the time to understand use cases and user needs. He is collaborative and excited to work through design problems with others.</p>
+              <div class="rec-name"><a href="https://www.linkedin.com/in/chadmueller/" target="_blank" rel="noopener">Chad Mueller</a></div>
+              <div class="rec-role">Oracle NetSuite &middot; managed Marc directly &middot; 2021</div>
+            </figure>
+          </div>
+
+          <div class="rec-slide">
+            <figure class="rec-card">
+              <p class="rec-quote">I hired Marc as Head of Design at Lodgify, and working with him was a real pleasure!</p>
+              <p class="rec-quote">He brought structure, care, and a strong user mindset to everything he did. Thanks to him, we embraced design thinking across the company: running real workshops, focusing on problems first, and building better, more thoughtful solutions.</p>
+              <p class="rec-quote">He built a solid design team from scratch, hired great people, and gave them space and ownership. He also rebuilt our design system from the ground up, which massively improved the consistency and speed of our product work.</p>
+              <p class="rec-quote">Marc has great intuition, strong craft, and a real ability to bring any conversation back to what matters most: the user. He made design more visible, more respected, and more central to how we built products.</p>
+              <p class="rec-quote">A leader who truly cares about people, and someone I&rsquo;d work with again without hesitation!</p>
+              <div class="rec-name"><a href="https://www.linkedin.com/in/alexandrehumeau/" target="_blank" rel="noopener">Alexandre Humeau</a></div>
+              <div class="rec-role">VP Product, Lodgify &middot; managed Marc directly &middot; 2025</div>
+            </figure>
+          </div>
+
+
+        </div>
+      </div>
+      <div class="rec-controls">
+        <div class="rec-arrows">
+          <button type="button" class="rec-arrow-btn rec-prev" aria-label="Previous recommendation">&#8592;</button>
+          <button type="button" class="rec-arrow-btn rec-next" aria-label="Next recommendation">&#8594;</button>
+        </div>
+        <div class="rec-dots"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="eyebrow">Contact</div>
+    <hr class="rule" style="margin-bottom:24px;">
+    <div class="contact-strip">
+      <a href="mailto:marcverdera@gmail.com">marcverdera@gmail.com <span class="arrow">&#8599;</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-copy">&copy; 2026 Marc Verdera</div>
+    <div class="f-loc">Barcelona / Everywhere</div>
+  </div>
+</footer>
+
+<script>
+/* Marc Verdera — Portfolio
+   Lightweight recommendations slider, no dependencies. */
+(function () {
+  function initSliders() {
+    var sliders = document.querySelectorAll('[data-slider]');
+    for (var s = 0; s < sliders.length; s++) {
+      (function (root) {
+        var track = root.querySelector('.rec-track');
+        var slides = root.querySelectorAll('.rec-slide');
+        var dotsWrap = root.querySelector('.rec-dots');
+        var prevBtn = root.querySelector('.rec-prev');
+        var nextBtn = root.querySelector('.rec-next');
+        if (!track || slides.length === 0) return;
+
+        var index = 0;
+        var dots = [];
+
+        if (dotsWrap) {
+          for (var i = 0; i < slides.length; i++) {
+            (function (i) {
+              var dot = document.createElement('button');
+              dot.type = 'button';
+              dot.className = 'rec-dot';
+              dot.setAttribute('aria-label', 'Go to recommendation ' + (i + 1));
+              dot.addEventListener('click', function () { go(i); });
+              dotsWrap.appendChild(dot);
+              dots.push(dot);
+            })(i);
+          }
+        }
+
+        var viewport = root.querySelector('.rec-viewport');
+        function fitHeight() {
+          if (viewport && slides[index]) viewport.style.height = slides[index].offsetHeight + 'px';
+        }
+        window.addEventListener('resize', fitHeight);
+        window.addEventListener('load', fitHeight);
+
+        function update() {
+          track.style.transform = 'translateX(-' + index * 100 + '%)';
+          fitHeight();
+          for (var i = 0; i < dots.length; i++) {
+            if (i === index) { dots[i].classList.add('is-active'); }
+            else { dots[i].classList.remove('is-active'); }
+          }
+        }
+
+        function go(i) {
+          index = (i + slides.length) % slides.length;
+          update();
+        }
+
+        if (prevBtn) prevBtn.addEventListener('click', function () { go(index - 1); });
+        if (nextBtn) nextBtn.addEventListener('click', function () { go(index + 1); });
+
+        if (slides.length > 1) {
+          var startX = null;
+          track.addEventListener('touchstart', function (e) {
+            startX = e.touches[0].clientX;
+          }, { passive: true });
+          track.addEventListener('touchend', function (e) {
+            if (startX === null) return;
+            var dx = e.changedTouches[0].clientX - startX;
+            if (Math.abs(dx) > 40) { go(index + (dx < 0 ? 1 : -1)); }
+            startX = null;
+          });
+        }
+
+        update();
+      })(sliders[s]);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSliders);
+  } else {
+    initSliders();
+  }
+})();
+
+</script>
+
+</body></html>
