@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Work with me — Marc Verdera</title>
+<meta name="description" content="Fractional design leadership for B2B product teams of 15–150 people with no design leader. Diagnostic, fractional design lead, or a 4-week product sprint.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Work with me — Marc Verdera">
+<meta property="og:description" content="Fractional design leadership for B2B product teams of 15–150 people with no design leader. Diagnostic, fractional design lead, or a 4-week product sprint.">
+<meta property="og:url" content="https://marcverdera.vercel.app/work-with-me">
+<meta property="og:image" content="https://marcverdera.vercel.app/images/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* Page-specific additions built from the site's existing tokens */
+.ww-hero h1 { font-size: clamp(40px, 6.4vw, 76px); line-height: 1.06; max-width: 18ch; margin-bottom: 26px; }
+.ww-hero .sub { font-size: 18px; max-width: 54ch; }
+.ww-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 22px; margin: 34px 0 10px; }
+.btn-primary { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 22px; background: var(--heading); color: var(--bg); text-decoration: none; font-size: 14px; font-weight: 600; letter-spacing: .3px; border-radius: 2px; }
+.btn-primary:hover { opacity: .88; }
+.btn-link { font-size: 14px; font-weight: 600; color: var(--heading); text-decoration: none; border-bottom: 1px solid var(--heading); padding: 12px 0 2px; }
+.btn-link:hover { color: var(--muted); border-color: var(--muted); }
+.fit { list-style: none; padding: 0; margin: 0; max-width: none; display: grid; grid-template-columns: 1fr; border-top: 1px solid var(--line); }
+.fit li { margin: 0; padding: 18px 0; border-bottom: 1px solid var(--line); font-size: 17px; color: var(--heading); }
+.offers { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.offer { background: var(--bg); padding: 30px 26px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.offer .o-k { font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: var(--faint); }
+.offer h3.o-t { font-family: 'Playfair Display', Georgia, serif; text-transform: none; letter-spacing: 0; font-size: 26px; line-height: 1.15; color: var(--heading); margin: 0; }
+.offer p { margin: 0; font-size: 15.5px; }
+.offer ul { margin: 0; padding-left: 18px; font-size: 15px; }
+.offer li { margin-bottom: 6px; }
+.offer .o-price { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--line); font-family: 'Playfair Display', Georgia, serif; font-size: 22px; color: var(--heading); }
+.offer .o-price small { display: block; font-family: 'Inter', sans-serif; font-size: 12.5px; color: var(--muted); margin-top: 4px; }
+.offers-cta { margin-top: 30px; }
+.proof { list-style: none; padding: 0; margin: 30px 0 0; max-width: none; display: grid; grid-template-columns: 1fr; gap: 0; border-top: 1px solid var(--line); }
+.proof li { margin: 0; padding: 16px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 1fr; gap: 4px; }
+.proof .p-k { font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: var(--faint); }
+.proof .p-v { font-size: 16px; color: var(--heading); }
+.steps { list-style: none; padding: 0; margin: 0; max-width: none; display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); counter-reset: s; }
+.steps li { margin: 0; background: var(--bg); padding: 24px 22px; counter-increment: s; }
+.steps li::before { content: counter(s, decimal-leading-zero); display: block; font-size: 11px; font-weight: 600; letter-spacing: 1.2px; color: var(--faint); margin-bottom: 10px; }
+.steps b { display: block; font-family: 'Playfair Display', Georgia, serif; font-size: 20px; font-weight: 600; color: var(--heading); margin-bottom: 6px; }
+.steps span { font-size: 15px; color: var(--fg); }
+.faq { border-top: 1px solid var(--line); }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary { cursor: pointer; list-style: none; padding: 20px 34px 20px 0; position: relative; font-family: 'Playfair Display', Georgia, serif; font-size: 20px; color: var(--heading); }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; position: absolute; right: 4px; top: 18px; font-family: 'Inter', sans-serif; font-size: 22px; color: var(--muted); }
+.faq details[open] summary::after { content: "\2013"; }
+.faq summary:focus-visible { outline: 2px solid var(--heading); outline-offset: 2px; }
+.faq details p { margin: 0 0 22px; max-width: 60ch; }
+.ww-final h2 { font-size: clamp(34px, 5vw, 56px); max-width: 16ch; margin-bottom: 16px; }
+@media (min-width: 700px) {
+  .fit { grid-template-columns: 1fr 1fr; column-gap: 40px; }
+  .offers { grid-template-columns: repeat(3, 1fr); }
+  .proof { grid-template-columns: repeat(2, 1fr); column-gap: 40px; }
+  .steps { grid-template-columns: repeat(3, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Marc Verdera</a>
+    <div class="links">
+      <a href="index.html#work">Work</a>
+      <a href="about.html">About</a>
+      <a href="about.html#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero ww-hero">
+  <div class="wrap">
+    <div class="eyebrow">Work with me &middot; Fractional design leadership</div>
+    <h1>Design leadership for B2B teams that don&rsquo;t have a design leader yet.</h1>
+    <hr class="rule">
+    <p class="sub" style="margin-top:28px;">For CEOs, CPOs, CTOs and VPs of Product at B2B companies of 15&ndash;150 people. I help you set up design, fix the product experience, and make better product decisions, without hiring a full-time design leader first.</p>
+    <div class="ww-cta">
+      <a class="btn-primary" href="mailto:marcverdera@gmail.com?subject=Work%20with%20me">Email me</a>
+      <a class="btn-link" href="#offers">See the offers</a>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="section-top">
+      <div class="eyebrow" style="margin-bottom:0;">Is this you?</div>
+      <p class="note">This is a fit if two or more of these sound familiar.</p>
+    </div>
+    <ul class="fit">
+      <li>You have designers, but nobody setting direction for them.</li>
+      <li>The product feels inconsistent, and every team solves the same problems differently.</li>
+      <li>Product decisions come from opinions, not from users.</li>
+      <li>You&rsquo;re adding AI features and aren&rsquo;t sure how they should work.</li>
+      <li>You&rsquo;re planning to hire a design leader and want the role defined first.</li>
+      <li>You need senior design judgement now, not in six months.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="offers">
+  <div class="wrap">
+    <div class="section-top">
+      <div class="eyebrow" style="margin-bottom:0;">Offers</div>
+      <p class="note">Three ways to work together. Most clients start with the diagnostic.</p>
+    </div>
+    <div class="offers">
+      <article class="offer">
+        <div class="o-k">2 weeks</div>
+        <h3 class="o-t">Design Leadership Diagnostic</h3>
+        <p>A clear picture of where design stands and what to do next.</p>
+        <ul>
+          <li>UX audit of your core product flows</li>
+          <li>Review of your design team and process</li>
+          <li>A 90-day design plan you can act on</li>
+        </ul>
+        <div class="o-price">&euro;3&ndash;4k<small>Fixed price</small></div>
+      </article>
+      <article class="offer">
+        <div class="o-k">1&ndash;2 days a week &middot; 3 months minimum</div>
+        <h3 class="o-t">Fractional design lead</h3>
+        <p>A senior design leader inside your team, part-time.</p>
+        <ul>
+          <li>Direction and critique for your designers</li>
+          <li>A seat in product and roadmap decisions</li>
+          <li>Design system and process foundations</li>
+          <li>Help hiring your first design lead</li>
+        </ul>
+        <div class="o-price">From &euro;3k a month</div>
+      </article>
+      <article class="offer">
+        <div class="o-k">4 weeks</div>
+        <h3 class="o-t">Product Sprint</h3>
+        <p>One flow or feature, taken from problem to tested design. Includes AI features.</p>
+        <ul>
+          <li>Audit of the current flow</li>
+          <li>Redesign</li>
+          <li>Testing with your users</li>
+          <li>Iteration based on what you learn</li>
+        </ul>
+        <div class="o-price">&euro;8&ndash;12k<small>Depending on scope</small></div>
+      </article>
+    </div>
+    <div class="offers-cta"><a class="btn-primary" href="mailto:marcverdera@gmail.com?subject=Work%20with%20me">Email me</a></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-top">
+      <div class="eyebrow" style="margin-bottom:0;">How I work</div>
+      <p class="note">20+ years as founder, consultant, then design leader.</p>
+    </div>
+    <p class="pull-quote">I&rsquo;m at my best with ambiguous, high-stakes problems. I take them apart until everyone in the room can say: it makes sense.</p>
+    <div class="values values-4" style="margin-top:36px;">
+      <div class="value">Problems before pixels</div>
+      <div class="value">Systems over screens</div>
+      <div class="value">Evidence over opinion</div>
+      <div class="value">Influence without ceremony</div>
+    </div>
+    <ul class="proof">
+      <li><span class="p-k">Oracle NetSuite</span><span class="p-v">Led 10 designers defining NetSuite Next, a new product concept for small businesses. The product still runs on it.</span></li>
+      <li><span class="p-k">Lodgify</span><span class="p-v">Grew design from 2 to 10 across product design, research and content. Built Garden, the design system, and authored its 26 UX patterns.</span></li>
+      <li><span class="p-k">Lodgify AI Co-Host</span><span class="p-v">Led the design of an AI agent that hosts trust to act on their behalf. Three rounds of testing with 24 customers.</span></li>
+      <li><span class="p-k">WebCarpet</span><span class="p-v">Founded and ran my own design agency, sales included. I know what it takes to run a business, not only a design team.</span></li>
+    </ul>
+    <p style="margin-top:22px;"><a href="index.html#work">See the case studies &rarr;</a></p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-top">
+      <div class="eyebrow" style="margin-bottom:0;">How we start</div>
+    </div>
+    <ol class="steps">
+      <li><b>Email</b><span>A few lines on your company, your team and the main design problem.</span></li>
+      <li><b>Intro call</b><span>30 minutes. We go through it together. I tell you honestly if I can help.</span></li>
+      <li><b>Proposal</b><span>A short written proposal: which offer fits, the scope, the timeline and the price.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-top">
+      <div class="eyebrow" style="margin-bottom:0;">FAQ</div>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>When can you start?</summary>
+        <p>Usually within [X WEEKS] of the intro call.</p>
+      </details>
+      <details>
+        <summary>Do you work remotely?</summary>
+        <p>Yes. I&rsquo;m based near Barcelona and work remotely with teams in Spain, the EU and the UK. I can come on-site for workshops when it helps.</p>
+      </details>
+      <details>
+        <summary>Which languages do you work in?</summary>
+        <p>Spanish, Catalan and English.</p>
+      </details>
+      <details>
+        <summary>Do you only work on AI products?</summary>
+        <p>No. Most of my work is complex B2B software: ERP, vertical platforms and design systems. AI features are part of that work, not the whole of it.</p>
+      </details>
+      <details>
+        <summary>Do the prices include VAT?</summary>
+        <p>[CONFIRM: prices exclude VAT.]</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="ww-final">
+  <div class="wrap">
+    <h2>Not sure which offer fits? Let&rsquo;s talk it through.</h2>
+    <p>Send me your company and website, your team size and design setup, and the main design problem.</p>
+    <div class="ww-cta">
+      <a class="btn-primary" href="mailto:marcverdera@gmail.com?subject=Work%20with%20me">Email me</a>
+      <span style="font-size:14px;color:var(--muted);"><span style="color:var(--heading);user-select:all;">marcverdera@gmail.com</span></span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-copy">&copy; 2026 Marc Verdera</div>
+    <div class="f-loc">Barcelona / Everywhere</div>
+  </div>
+</footer>
+
+</body>
+</html>
