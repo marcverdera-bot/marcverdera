@@ -4,12 +4,12 @@
   "redirects": [
     {
       "source": "/contact",
-      "destination": "/about#contact",
+      "destination": "/#contact",
       "permanent": true
     },
     {
       "source": "/contact.html",
-      "destination": "/about#contact",
+      "destination": "/#contact",
       "permanent": true
     }
   ]
