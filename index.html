@@ -495,6 +495,21 @@ figure { margin: 0; }
 .wwm a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line); padding: 10px 0 2px; display: inline-block; }
 .wwm a:hover { color: var(--heading); border-color: var(--heading); }
 .hx-row { margin-bottom: 8px; }
+.proof-quotes { display: grid; grid-template-columns: 1fr; gap: 28px; margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--line); }
+.pq { margin: 0; }
+.pq blockquote { margin: 0 0 14px; font-family: 'Playfair Display', Georgia, serif; font-size: 21px; line-height: 1.4; color: var(--heading); }
+.pq figcaption { font-size: 13px; color: var(--muted); padding-left: 22px; }
+.pq figcaption b { color: var(--heading); font-weight: 600; }
+.pq-more { margin: 26px 0 0; font-size: 14px; }
+.pq-more a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line); padding: 10px 0 2px; display: inline-block; }
+.pq-more a:hover { color: var(--heading); border-color: var(--heading); }
+.rec-grid { display: grid; grid-template-columns: 1fr; gap: 20px; align-items: start; }
+.rec-grid .rec-card { margin: 0; }
+@media (min-width: 800px) {
+  .proof-quotes { grid-template-columns: 1fr 1fr; gap: 48px; }
+  .pq blockquote { font-size: 24px; }
+  .rec-grid { grid-template-columns: 1fr 1.3fr; }
+}
 </style>
 </head>
 <body>
@@ -611,6 +626,17 @@ figure { margin: 0; }
       <li><span class="y">2020</span><span class="r">Manager, Experience Design, Global Innovation team</span></li>
       <li><span class="y">2022</span><span class="r">Lodgify: Product Design Manager, then Head of Design</span></li>
     </ol>
+    <div class="proof-quotes">
+      <figure class="pq">
+        <blockquote>&ldquo;He built a solid design team from scratch, hired great people, and gave them space and ownership.&rdquo;</blockquote>
+        <figcaption><b>Alexandre Humeau</b> &middot; VP Product, Lodgify</figcaption>
+      </figure>
+      <figure class="pq">
+        <blockquote>&ldquo;Marc&rsquo;s design approach is top-notch, he takes the time to understand use cases and user needs.&rdquo;</blockquote>
+        <figcaption><b>Chad Mueller</b> &middot; Oracle NetSuite</figcaption>
+      </figure>
+    </div>
+    <p class="pq-more"><a href="#recommendations">Read the full recommendations &darr;</a></p>
   </div>
 </section>
 
@@ -675,11 +701,9 @@ figure { margin: 0; }
       <p class="note">What people I have worked with say.</p>
     </div>
 
-    <div class="rec-slider" data-slider>
-      <div class="rec-viewport">
-        <div class="rec-track">
+    <div class="rec-grid">
 
-          <div class="rec-slide">
+          <div class="rec-item">
             <figure class="rec-card">
               <p class="rec-quote">Marc is a class act! I worked with Marc as he came into NetSuite and saw him grow firsthand into a Senior Leader within the organization. Marc has always brought an amazing attitude of positivity and empathy to the team and projects he led.</p>
               <p class="rec-quote">Marc&rsquo;s design approach is top-notch, he takes the time to understand use cases and user needs. He is collaborative and excited to work through design problems with others.</p>
@@ -688,7 +712,7 @@ figure { margin: 0; }
             </figure>
           </div>
 
-          <div class="rec-slide">
+          <div class="rec-item">
             <figure class="rec-card">
               <p class="rec-quote">I hired Marc as Head of Design at Lodgify, and working with him was a real pleasure!</p>
               <p class="rec-quote">He brought structure, care, and a strong user mindset to everything he did. Thanks to him, we embraced design thinking across the company: running real workshops, focusing on problems first, and building better, more thoughtful solutions.</p>
@@ -699,17 +723,6 @@ figure { margin: 0; }
               <div class="rec-role">VP Product, Lodgify &middot; managed Marc directly &middot; 2025</div>
             </figure>
           </div>
-
-
-        </div>
-      </div>
-      <div class="rec-controls">
-        <div class="rec-arrows">
-          <button type="button" class="rec-arrow-btn rec-prev" aria-label="Previous recommendation">&#8592;</button>
-          <button type="button" class="rec-arrow-btn rec-next" aria-label="Next recommendation">&#8594;</button>
-        </div>
-        <div class="rec-dots"></div>
-      </div>
     </div>
   </div>
 </section>
