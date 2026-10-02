@@ -28,28 +28,28 @@
 .fit li { margin: 0; padding: 18px 0; border-bottom: 1px solid var(--line); font-size: 17px; color: var(--heading); }
 .offers { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); }
 .offer { background: var(--bg); padding: 30px 26px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
-.offer .o-k { font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: var(--faint); }
-.offer h3.o-t { font-family: 'Playfair Display', Georgia, serif; text-transform: none; letter-spacing: 0; font-size: 26px; line-height: 1.15; color: var(--heading); margin: 0; }
+.offer .o-k { font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; color: var(--faint); }
+.offer h3.o-t { font-family: var(--serif); text-transform: none; letter-spacing: 0; font-size: 26px; line-height: 1.15; color: var(--heading); margin: 0; }
 .offer p { margin: 0; font-size: 15.5px; }
 .offer ul { margin: 0; padding-left: 18px; font-size: 15px; }
 .offer li { margin-bottom: 6px; }
-.offer .o-price { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--line); font-family: 'Playfair Display', Georgia, serif; font-size: 22px; color: var(--heading); }
-.offer .o-price small { display: block; font-family: 'Inter', sans-serif; font-size: 12.5px; color: var(--muted); margin-top: 4px; }
+.offer .o-price { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--line); font-family: var(--serif); font-size: 22px; color: var(--heading); }
+.offer .o-price small { display: block; font-family: var(--sans); font-size: 12.5px; color: var(--muted); margin-top: 4px; }
 .offers-cta { margin-top: 30px; }
 .proof { list-style: none; padding: 0; margin: 30px 0 0; max-width: none; display: grid; grid-template-columns: 1fr; gap: 0; border-top: 1px solid var(--line); }
 .proof li { margin: 0; padding: 16px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 1fr; gap: 4px; }
-.proof .p-k { font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: var(--faint); }
+.proof .p-k { font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; color: var(--faint); }
 .proof .p-v { font-size: 16px; color: var(--heading); }
 .steps { list-style: none; padding: 0; margin: 0; max-width: none; display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); counter-reset: s; }
 .steps li { margin: 0; background: var(--bg); padding: 24px 22px; counter-increment: s; }
 .steps li::before { content: counter(s, decimal-leading-zero); display: block; font-size: 11px; font-weight: 600; letter-spacing: 1.2px; color: var(--faint); margin-bottom: 10px; }
-.steps b { display: block; font-family: 'Playfair Display', Georgia, serif; font-size: 20px; font-weight: 600; color: var(--heading); margin-bottom: 6px; }
+.steps b { display: block; font-family: var(--serif); font-size: 20px; font-weight: 600; color: var(--heading); margin-bottom: 6px; }
 .steps span { font-size: 15px; color: var(--fg); }
 .faq { border-top: 1px solid var(--line); }
 .faq details { border-bottom: 1px solid var(--line); }
-.faq summary { cursor: pointer; list-style: none; padding: 20px 34px 20px 0; position: relative; font-family: 'Playfair Display', Georgia, serif; font-size: 20px; color: var(--heading); }
+.faq summary { cursor: pointer; list-style: none; padding: 20px 34px 20px 0; position: relative; font-family: var(--serif); font-size: 20px; color: var(--heading); }
 .faq summary::-webkit-details-marker { display: none; }
-.faq summary::after { content: "+"; position: absolute; right: 4px; top: 18px; font-family: 'Inter', sans-serif; font-size: 22px; color: var(--muted); }
+.faq summary::after { content: "+"; position: absolute; right: 4px; top: 18px; font-family: var(--sans); font-size: 22px; color: var(--muted); }
 .faq details[open] summary::after { content: "\2013"; }
 .faq summary:focus-visible { outline: 2px solid var(--heading); outline-offset: 2px; }
 .faq details p { margin: 0 0 22px; max-width: 60ch; }
