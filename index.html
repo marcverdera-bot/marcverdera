@@ -540,7 +540,6 @@ h1, h2{ letter-spacing:-0.015em; }
 .cs-photo img{ border-radius:8px; }
 .cs-photo .cap-line{ font-style:normal; font-family:var(--sans); font-size:13px; }
 h3{ color:var(--heading); }
-.nav .brand{ letter-spacing:0!important; font-size:15px!important; font-weight:600; }
 .pull-quote{ font-size:40px; line-height:1.15; }
 blockquote{ font-size:24px; line-height:1.3; }
 
@@ -586,14 +585,47 @@ blockquote{ font-size:24px; line-height:1.3; }
 .proj-row:hover .proj-thumb, .proj-row:focus-visible .proj-thumb{ filter:none; }
 @media (min-width:700px){ .proj-row{ grid-template-columns:260px 1fr auto; gap:32px; align-items:center; } .proj-row .proj-meta{ align-self:start; padding-top:10px; } }
 @media (prefers-reduced-motion: reduce){ .proj-thumb{ transition:none; } }
+
+/* ===== Logo + nav over dark heroes ===== */
+:root{ --navh:59px; }
+@media (min-width:700px){ :root{ --navh:69px; } }
+.nav .brand{ min-height:44px; display:inline-flex; align-items:center; color:var(--heading); }
+.logo{ display:block; height:31px; width:auto; overflow:visible; }
+.logo text{ font-family:var(--sans); font-weight:600; fill:currentColor; }
+.nav{ transition:background-color .25s ease, border-color .25s ease, color .25s ease; }
+.nav.is-dark{ background:rgba(0,0,0,.42); -webkit-backdrop-filter:blur(14px) saturate(140%); backdrop-filter:blur(14px) saturate(140%); border-bottom-color:rgba(255,255,255,.1); }
+.nav.is-dark .brand, .nav.is-dark .links a, .nav.is-dark .back{ color:#fff; }
+.nav.is-dark .links a:hover, .nav.is-dark .back:hover{ color:rgba(255,255,255,.65); }
+.nav.is-dark .tag{ color:rgba(255,255,255,.55); }
+.nav + .hero, .nav + .cs-hero{ margin-top:calc(-1 * var(--navh)); }
+.nav + .hero:not(.hero-x){ padding-top:calc(var(--navh) + 64px); }
+.nav + .cs-hero{ padding-top:calc(var(--navh) + 56px); }
+@media (prefers-reduced-motion: reduce){ .nav{ transition:none; } }
+
+/* ===== Project cards ===== */
+.pgrid{ display:grid; grid-template-columns:1fr; gap:16px; margin-top:8px; }
+.pcard{ position:relative; display:flex; flex-direction:column; background:#000; color:#fff; border-radius:14px; overflow:hidden; text-decoration:none; isolation:isolate; }
+.pcard-media{ position:relative; aspect-ratio:16/10; overflow:hidden; background:radial-gradient(120% 90% at 85% 0%, #2a2a2a 0%, #0c0c0c 55%, #000 100%); }
+.pcard-media img{ position:absolute; left:9%; top:12%; width:112%; height:112%; object-fit:cover; border-radius:8px; box-shadow:0 24px 60px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.08); transform-origin:0 0; transition:transform .5s cubic-bezier(.2,.7,.2,1), filter .4s ease; }
+.pcard:hover .pcard-media img, .pcard:focus-visible .pcard-media img{ filter:none; transform:translate(-2%,-3%); }
+.pcard-body{ padding:22px 24px 26px; display:flex; flex-direction:column; gap:8px; border-top:1px solid rgba(255,255,255,.08); }
+.pcard-meta{ display:flex; justify-content:space-between; gap:12px; font-size:13px; color:rgba(255,255,255,.55); }
+.pcard-go{ font-size:16px; color:#fff; transition:transform .3s ease; }
+.pcard:hover .pcard-go{ transform:translate(2px,-2px); }
+.pcard-title{ font-family:var(--serif); font-weight:400; font-size:34px; line-height:1.05; letter-spacing:-0.01em; color:#fff; margin:2px 0 0; text-transform:none; }
+.pcard-desc{ font-size:15px; line-height:1.55; color:rgba(255,255,255,.72); margin:0; max-width:46ch; }
+.pcard:focus-visible{ outline:2px solid var(--heading); outline-offset:4px; }
+@media (hover:hover){ .pcard-media img{ filter:grayscale(1) brightness(.92); } }
+@media (min-width:900px){ .pgrid{ grid-template-columns:1fr 1fr; gap:20px; } .pcard-title{ font-size:40px; } }
+@media (prefers-reduced-motion: reduce){ .pcard-media img, .pcard-go{ transition:none; } }
 </style>
 </head>
 <body>
 
 
-<nav class="nav">
+<nav class="nav is-dark">
   <div class="wrap">
-    <a class="brand" href="index.html">Marc Verdera</a>
+    <a class="brand" href="index.html"><svg class="logo" viewBox="0 0 72 31" width="72" height="31" role="img" aria-label="Marc Verdera"><text x="0" y="17" textLength="72" lengthAdjust="spacingAndGlyphs" font-size="23.9">MARC</text><text x="0" y="30.5" textLength="72" lengthAdjust="spacing" font-size="14">VERDERA</text></svg></a>
     <div class="links">
       <a href="index.html#work">Work</a>
       <a href="about.html">About</a>
@@ -723,38 +755,38 @@ blockquote{ font-size:24px; line-height:1.3; }
       <div class="eyebrow" style="margin-bottom:0;">Selected Projects</div>
       <p class="note">Two zero-to-one concepts. Two design systems. ERP and vertical platforms.</p>
     </div>
-    <div class="proj-list">
-      <a class="proj-row" href="case-studies/netsuite-next.html">
-        <img class="proj-thumb" src="images/nsn-invoice.jpg" alt="NetSuite Next invoice screen">
-        <div class="proj-main">
-          <h3 class="proj-title">NetSuite Next</h3>
-          <p class="proj-desc">A new product concept for small businesses. I led 10 designers to define it. The product still runs on it.</p>
+    <div class="pgrid">
+      <a class="pcard" href="case-studies/netsuite-next.html">
+        <div class="pcard-media"><img src="images/nsn-invoice.jpg" alt="NetSuite Next invoice screen" style="object-position:top left"></div>
+        <div class="pcard-body">
+          <div class="pcard-meta"><span>Zero-to-One Concept &middot; 2020</span><span class="pcard-go" aria-hidden="true">&#8599;</span></div>
+          <h3 class="pcard-title">NetSuite Next</h3>
+          <p class="pcard-desc">A new product concept for small businesses. I led 10 designers to define it. The product still runs on it.</p>
         </div>
-        <div class="proj-meta"><span>Zero-to-One Concept &middot; 2020</span><span class="arrow">&#8599;</span></div>
       </a>
-      <a class="proj-row" href="case-studies/lodgify-cohost.html">
-        <img class="proj-thumb" src="images/cohost-hero.jpg" alt="Lodgify dashboard with the Co-Host panel">
-        <div class="proj-main">
-          <h3 class="proj-title">Lodgify Co-Host</h3>
-          <p class="proj-desc">An AI agent that hosts trust to act on their behalf. I led its design through three rounds of testing with 24 customers.</p>
+      <a class="pcard" href="case-studies/lodgify-cohost.html">
+        <div class="pcard-media"><img src="images/cohost-hero.jpg" alt="Lodgify dashboard with the Co-Host panel" style="object-position:right bottom"></div>
+        <div class="pcard-body">
+          <div class="pcard-meta"><span>AI product &middot; 2025&ndash;26</span><span class="pcard-go" aria-hidden="true">&#8599;</span></div>
+          <h3 class="pcard-title">Lodgify Co-Host</h3>
+          <p class="pcard-desc">An AI agent that hosts trust to act on their behalf. I led its design through three rounds of testing with 24 customers.</p>
         </div>
-        <div class="proj-meta"><span>AI product &middot; 2025&ndash;26</span><span class="arrow">&#8599;</span></div>
       </a>
-      <a class="proj-row" href="case-studies/netsuite-design-system.html">
-        <img class="proj-thumb" src="images/nds-template.jpg" alt="NetSuite master layout template">
-        <div class="proj-main">
-          <h3 class="proj-title">NetSuite Design System</h3>
-          <p class="proj-desc">Unifying a fragmented enterprise UI into one shared design language.</p>
+      <a class="pcard" href="case-studies/netsuite-design-system.html">
+        <div class="pcard-media"><img src="images/nds-template.jpg" alt="NetSuite master layout template" style="object-position:top center"></div>
+        <div class="pcard-body">
+          <div class="pcard-meta"><span>Design System &middot; 2017&ndash;2022</span><span class="pcard-go" aria-hidden="true">&#8599;</span></div>
+          <h3 class="pcard-title">NetSuite Design System</h3>
+          <p class="pcard-desc">Unifying a fragmented enterprise UI into one shared design language.</p>
         </div>
-        <div class="proj-meta"><span>Design System &middot; 2017&ndash;2022</span><span class="arrow">&#8599;</span></div>
       </a>
-      <a class="proj-row" href="case-studies/lodgify-design-system.html">
-        <img class="proj-thumb" src="images/lds-ia.jpg" alt="Garden design system architecture">
-        <div class="proj-main">
-          <h3 class="proj-title">Lodgify Design System</h3>
-          <p class="proj-desc">Garden: the design system I built at Lodgify, and the 26 UX patterns I authored for it.</p>
+      <a class="pcard" href="case-studies/lodgify-design-system.html">
+        <div class="pcard-media"><img src="images/lds-ia.jpg" alt="Garden design system architecture" style="object-position:top left"></div>
+        <div class="pcard-body">
+          <div class="pcard-meta"><span>Design System &middot; 2022&ndash;2025</span><span class="pcard-go" aria-hidden="true">&#8599;</span></div>
+          <h3 class="pcard-title">Lodgify Design System</h3>
+          <p class="pcard-desc">Garden: the design system I built at Lodgify, and the 26 UX patterns I authored for it.</p>
         </div>
-        <div class="proj-meta"><span>Design System &middot; 2022&ndash;2025</span><span class="arrow">&#8599;</span></div>
       </a>
     </div>
   </div>
@@ -910,4 +942,5 @@ blockquote{ font-size:24px; line-height:1.3; }
 
 </script>
 
+<script src="js/nav.js" defer></script>
 </body></html>
