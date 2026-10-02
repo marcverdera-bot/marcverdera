@@ -541,3 +541,6 @@ footer :is(.f-copy,.f-loc){ color:rgba(255,255,255,.55); }
 #contact a:hover{ color:var(--hi); }
 .hero.about-hero{ background:linear-gradient(90deg, var(--charcoal) 18%, rgba(42,43,46,.86) 50%, rgba(42,43,46,.74)), url('/images/about-studio.jpg') center / cover no-repeat, var(--charcoal); }
 @media (max-width:699px){ .hero.about-hero{ background:linear-gradient(180deg, rgba(42,43,46,.7), rgba(42,43,46,.92)), url('/images/about-studio.jpg') 70% center / cover no-repeat, var(--charcoal); } }
+
+/* No rules inside dark page heroes */
+.hero:not(.hero-x) .rule, .cs-hero .rule{ display:none; }
