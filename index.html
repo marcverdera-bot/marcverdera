@@ -557,7 +557,7 @@ blockquote{ font-size:24px; line-height:1.3; }
 @keyframes drift{ from{ transform:translateY(0) } to{ transform:translateY(-50%) } }
 @media (prefers-reduced-motion: reduce){ .wcol{ animation:none; } }
 .hero-x .hx-title{ font-weight:400; letter-spacing:-0.02em; font-size:clamp(52px, 9.4vw, 118px); line-height:.98; color:#fff; }
-.hero-x .hx-title em{ font-style:normal; color:#9fa1a6; font-weight:600; }
+.hero-x .hx-title em{ font-style:normal; color:var(--hi); font-weight:600; }
 .hero-x .hx-sub{ color:rgba(255,255,255,.82); }
 .hero-x .eyebrow, .hero-x .hx-proof{ color:rgba(255,255,255,.6); }
 .hero-x .hx-proof span{ color:rgba(255,255,255,.35); }
@@ -700,17 +700,12 @@ footer :is(.f-copy,.f-loc){ color:rgba(255,255,255,.5); }
 }
 
 /* ===== Highlight colour + About background ===== */
-:root{ --hi:#ffd23f; --hi-hover:#ffdc66; }
-::selection{ background:var(--hi); color:#111; }
-.btn-primary, .hero .btn-primary, .hero-x .btn-primary, .hero:not(.hero-x) .btn-primary{ background:var(--hi)!important; color:#111!important; }
-.btn-primary:hover{ background:var(--hi-hover)!important; opacity:1; }
-.nav.is-dark .links a:hover{ color:var(--hi); }
-.pcard-go{ display:inline-grid; place-items:center; width:32px; height:32px; border-radius:50%; background:var(--hi); color:#111!important; font-size:15px; flex:none; }
-.pcard:hover .pcard-go{ transform:translate(2px,-2px) rotate(0deg); }
+:root{ --hi:#ffd23f; }
+/* Yellow underline on links that sit on dark backgrounds */
+:is(.hero-x, .hero:not(.hero-x), .cs-hero, #contact) :is(.btn-link, .pq-more a, .wwm a){ border-bottom:1px solid var(--hi)!important; }
+:is(.hero-x, .hero:not(.hero-x), .cs-hero, #contact) :is(.btn-link, .pq-more a, .wwm a):hover{ color:var(--hi)!important; }
 #contact a{ border-color:var(--hi)!important; }
 #contact a:hover{ color:var(--hi); }
-.about-hero{ background:linear-gradient(90deg, var(--charcoal) 18%, rgba(42,43,46,.82) 50%, rgba(42,43,46,.62)), url('/images/about-studio.jpg') center / cover no-repeat, var(--charcoal); }
-@media (max-width:699px){ .about-hero{ background:linear-gradient(180deg, rgba(42,43,46,.7), rgba(42,43,46,.92)), url('/images/about-studio.jpg') 70% center / cover no-repeat, var(--charcoal); } }
 </style>
 </head>
 <body>
@@ -808,8 +803,8 @@ footer :is(.f-copy,.f-loc){ color:rgba(255,255,255,.5); }
 <text x="703.0" y="30" style="fill:var(--heading)" font-size="12">Manager, Experience</text>
 <text x="703.0" y="44" style="fill:var(--heading)" font-size="12">Design · Innovation</text>
 <text x="930.0" y="82" style="fill:var(--faint)" font-size="11" font-weight="600" letter-spacing="0" text-anchor="end">Today</text>
-<rect x="703.0" y="176" width="227.0" height="22" rx="11" style="fill:var(--hi);stroke:none"/>
-<text x="918.0" y="191" style="fill:#111" font-size="10" font-weight="600" letter-spacing="0" text-anchor="end">AI product design</text>
+<rect x="703.0" y="176" width="227.0" height="22" rx="11" style="fill:var(--surface);stroke:var(--line)"/>
+<text x="918.0" y="191" style="fill:var(--fg)" font-size="10" font-weight="600" letter-spacing="0" text-anchor="end">AI product design</text>
 <rect x="627.4" y="206" width="302.6" height="22" rx="11" style="fill:var(--surface);stroke:var(--line)"/>
 <text x="918.0" y="221" style="fill:var(--fg)" font-size="10" font-weight="600" letter-spacing="0" text-anchor="end">Design leadership</text>
 <rect x="589.6" y="236" width="340.4" height="22" rx="11" style="fill:var(--surface);stroke:var(--line)"/>

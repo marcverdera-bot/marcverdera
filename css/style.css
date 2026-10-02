@@ -533,13 +533,10 @@ footer{ background:var(--charcoal); border-top:0; }
 footer :is(.f-copy,.f-loc){ color:rgba(255,255,255,.55); }
 
 /* ===== Highlight colour + About background ===== */
-:root{ --hi:#ffd23f; --hi-hover:#ffdc66; }
-::selection{ background:var(--hi); color:#111; }
-.btn-primary, .hero .btn-primary, .hero-x .btn-primary, .hero:not(.hero-x) .btn-primary{ background:var(--hi)!important; color:#111!important; }
-.btn-primary:hover{ background:var(--hi-hover)!important; opacity:1; }
-.nav.is-dark .links a:hover{ color:var(--hi); }
-.pcard-go{ display:inline-grid; place-items:center; width:32px; height:32px; border-radius:50%; background:var(--hi); color:#111!important; font-size:15px; flex:none; }
-.pcard:hover .pcard-go{ transform:translate(2px,-2px) rotate(0deg); }
+:root{ --hi:#ffd23f; }
+/* Yellow underline on links that sit on dark backgrounds */
+:is(.hero-x, .hero:not(.hero-x), .cs-hero, #contact) :is(.btn-link, .pq-more a, .wwm a){ border-bottom:1px solid var(--hi)!important; }
+:is(.hero-x, .hero:not(.hero-x), .cs-hero, #contact) :is(.btn-link, .pq-more a, .wwm a):hover{ color:var(--hi)!important; }
 #contact a{ border-color:var(--hi)!important; }
 #contact a:hover{ color:var(--hi); }
 .hero.about-hero{ background:linear-gradient(90deg, var(--charcoal) 18%, rgba(42,43,46,.86) 50%, rgba(42,43,46,.74)), url('/images/about-studio.jpg') center / cover no-repeat, var(--charcoal); }
