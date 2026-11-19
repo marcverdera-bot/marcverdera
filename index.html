@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light only">
 <title>Marc Verdera — Product Design Leader</title>
 <meta name="description" content="Product design leader for complex B2B products. Design systems and AI products. Built Lodgify’s design team 2→10. ex-Oracle NetSuite.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -49,36 +50,7 @@
   --dash: #d4d4d4;
   --max: 1040px;
   --measure: 760px;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #111111;
-    --surface: #1b1b1b;
-    --fg: #e5e5e5;
-    --heading: #fafafa;
-    --accent: #fafafa;
-    --muted: #a3a3a3;
-    --faint: #737373;
-    --line: #2e2e2e;
-    --warn: #c4c4c4;
-    --nav-bg: rgba(17,17,17,0.88);
-    --dash: #404040;
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #111111;
-  --surface: #1b1b1b;
-  --fg: #e5e5e5;
-  --heading: #fafafa;
-  --accent: #fafafa;
-  --muted: #a3a3a3;
-  --faint: #737373;
-  --line: #2e2e2e;
-  --warn: #c4c4c4;
-  --nav-bg: rgba(17,17,17,0.88);
-  --dash: #404040;
-  color-scheme: dark;
+  color-scheme: light only;
 }
 
 * { box-sizing: border-box; }
@@ -557,7 +529,7 @@ blockquote{ font-size:24px; line-height:1.3; }
 @keyframes drift{ from{ transform:translateY(0) } to{ transform:translateY(-50%) } }
 @media (prefers-reduced-motion: reduce){ .wcol{ animation:none; } }
 .hero-x .hx-title{ font-weight:400; letter-spacing:-0.02em; font-size:clamp(52px, 9.4vw, 118px); line-height:.98; color:#fff; }
-.hero-x .hx-title em{ font-style:normal; color:rgba(255,216,92,.78); font-weight:600; }
+.hero-x .hx-title em{ font-style:normal; color:#fff; font-weight:inherit; }
 .hero-x .hx-sub{ color:rgba(255,255,255,.82); }
 .hero-x .eyebrow, .hero-x .hx-proof{ color:rgba(255,255,255,.6); }
 .hero-x .hx-proof span{ color:rgba(255,255,255,.35); }
@@ -652,7 +624,7 @@ footer :is(.f-copy,.f-loc){ color:rgba(255,255,255,.55); }
 .wall{ opacity:.5; }
 .wcol img{ filter:grayscale(1) brightness(1.05); }
 .hx-top{ margin-bottom:clamp(12px, 2.6vh, 28px); }
-.hero-x .hx-title{ font-weight:700; letter-spacing:-0.045em; font-size:clamp(38px, min(7vw, 10vh), 88px); line-height:1.0; margin-bottom:clamp(14px, 3vh, 30px); }
+.hero-x .hx-title{ font-weight:700; letter-spacing:-0.045em; font-size:clamp(36px, min(6.2vw, 10vh), 80px); line-height:1.0; margin-bottom:clamp(14px, 3vh, 30px); }
 .hero-x .hx-row{ padding-top:clamp(14px, 2.6vh, 24px); padding-bottom:clamp(18px, 3.6vh, 40px); }
 .hero-x .hx-sub{ font-size:clamp(15px, 2vh, 18px); }
 .hx-recs .pq{ background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.16); padding:clamp(16px, 2.4vh, 24px) 24px; }
@@ -740,7 +712,7 @@ footer :is(.f-copy,.f-loc){ color:rgba(255,255,255,.5); }
       <div class="eyebrow" style="margin:0;">Product Design Leader &middot; Barcelona</div>
       <div class="hx-proof">Oracle NetSuite <span>/</span> Lodgify <span>/</span> Founder, WebCarpet</div>
     </div>
-    <h1 class="hx-title">Systems that scale.<br><em>AI that people trust.</em></h1>
+    <h1 class="hx-title">Complex problems.<br><em>Solutions that make sense.</em></h1>
     <div class="hx-row">
       <p class="hx-sub">20+ years turning ambiguous, high-stakes problems into structure: design systems whole companies build on, design teams built from the ground up, and AI designed to earn people’s trust. Same skill, different altitudes.</p>
       <div class="hx-cta">
